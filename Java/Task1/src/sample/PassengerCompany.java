@@ -9,25 +9,12 @@ import java.util.Random;
  */
 public class PassengerCompany extends Company
 {
-    public PassengerCompany(int index)
+    public PassengerCompany(String _name)
     {
         Random rnd = new Random();
         this.Cost = rnd.nextInt(2000000);
-        this.Time = new Date(rnd.nextInt(2),rnd.nextInt(12),rnd.nextInt(30));
-        this.Name = String.valueOf(index);
-    }
-    public int getCost()
-    {
-        return this.Cost;
+        this.Time = new Date(12*(long)Math.abs(rnd.nextInt()));
+        this.Name = _name;
     }
 
-    public Date getTime()
-    {
-        return this.Time;
-    }
-
-    public String getName()
-    {
-        return this.Name;
-    }
 }

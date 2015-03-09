@@ -1,8 +1,32 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="TenderView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="ShowPlanesCountMil" layoutX="90.0" layoutY="27.0" AnchorPane.topAnchor="27.0" />
+      <TextField fx:id="ShowPlanesTimeLimitMil" layoutX="254.0" layoutY="27.0" AnchorPane.topAnchor="27.0" />
+      <Button fx:id="TestButton" layoutX="218.0" layoutY="344.0" mnemonicParsing="false" onAction="#onClick" prefHeight="25.0" prefWidth="149.0" text="Start" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="233.0" />
+      <TableView fx:id="tenderTable" layoutX="12.0" layoutY="125.0" prefHeight="297.0" prefWidth="676.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="125.0">
+        <columns>
+          <TableColumn fx:id="companyNumber" prefWidth="112.0" text="Company number" />
+          <TableColumn fx:id="countAirplanes" prefWidth="114.0" text="Number airplanes" />
+            <TableColumn fx:id="isMilitary" prefWidth="114.0" text="Military" />
+            <TableColumn fx:id="costByOne" prefWidth="114.0" text="Price" />
+            <TableColumn fx:id="totalCost" prefWidth="114.0" text="Total cost" />
+            <TableColumn fx:id="timeToBuild" prefWidth="114.0" text="Time" />
+        </columns>
+      </TableView>
+      <Label layoutX="90.0" layoutY="9.0" text="Number airplanes to buy" />
+      <Label layoutX="254.0" layoutY="11.0" text="Time limit to constructing" />
+      <Label layoutX="254.0" layoutY="74.0" text="Time limit to constructing" />
+      <Label layoutX="516.0" layoutY="36.0" text="Total airplanes cost" />
+      <Label layoutX="88.0" layoutY="72.0" text="Number airplanes to buy" />
+      <TextField fx:id="ShowPlanesTimeLimitPass" layoutX="254.0" layoutY="90.0" />
+      <TextField fx:id="ShowPlanesCost" layoutX="500.0" layoutY="60.0" />
+      <TextField fx:id="ShowPlanesCountPass" layoutX="88.0" layoutY="90.0" />
+      <Label layoutX="12.0" layoutY="19.0" text="MILITARY" />
+      <Label layoutX="14.0" layoutY="82.0" text="PASSENGER" />
+   </children>
+</AnchorPane>

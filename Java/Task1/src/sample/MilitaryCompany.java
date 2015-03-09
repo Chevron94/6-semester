@@ -9,12 +9,13 @@ import java.util.Random;
 public class MilitaryCompany extends Company
 {
     private static int ReadyPlanes;
-    public MilitaryCompany(int index)
+    public MilitaryCompany(String _name)
     {
         Random rnd = new Random();
         this.Cost = rnd.nextInt(2000000);
-        this.Time = new Date(rnd.nextInt(2),rnd.nextInt(12),rnd.nextInt(30));
-        this.Name = String.valueOf(index);
+        this.Time = new Date(12*(long)Math.abs(rnd.nextInt()));
+
+        this.Name = _name;
     }
 
     static
@@ -22,18 +23,11 @@ public class MilitaryCompany extends Company
         Random rnd = new Random();
         ReadyPlanes = rnd.nextInt(10);
     }
-    public int getCost()
+
+    public int getReadyPlanes()
     {
-        return this.Cost;
+        return ReadyPlanes;
     }
 
-    public Date getTime()
-    {
-        return this.Time;
-    }
 
-    public String getName()
-    {
-        return this.Name;
-    }
 }

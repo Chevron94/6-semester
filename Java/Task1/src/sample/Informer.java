@@ -22,8 +22,8 @@ public class Informer
         PassengerCompaniesCount = rnd.nextInt(20);
         CountMilitaryAirplanes = rnd.nextInt(100);
         CountPassengerAirplanes = rnd.nextInt(100);
-        TimeMilitaryAirplanes = new Date(rnd.nextInt(20),rnd.nextInt(12),rnd.nextInt(30));
-        TimePassengerAirplanes = new Date(rnd.nextInt(20),rnd.nextInt(12),rnd.nextInt(30));
+        TimeMilitaryAirplanes = new Date(Math.abs(5*(long)rnd.nextInt()*CountMilitaryAirplanes));
+        TimePassengerAirplanes = new Date(Math.abs(5*(long)rnd.nextInt()*CountPassengerAirplanes));
     }
 
     public int getMilitaryCompaniesCount()
