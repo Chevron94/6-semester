@@ -75,9 +75,13 @@ public class db
     {
         try
         {
-            c.close();
-            stmt.close();
-            res.close();
+            if (res != null)
+                res.close();
+            if (stmt != null)
+                stmt.close();
+            if (c != null)
+                c.close();
+
         }
         catch (SQLException e)
         {

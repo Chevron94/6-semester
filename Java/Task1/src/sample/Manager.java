@@ -10,7 +10,7 @@ import java.util.*;
 public class Manager
 {
     private MilitaryCompany[] militaryCompanies;
-    private PassengerCompany[] PassengerCompanies;
+    private PassengerCompany[] passengerCompanies;
     private Informer informer;
     private List<Tender> tenders;
     private int totalSum = 0;
@@ -21,7 +21,7 @@ public class Manager
         int mc = informer.getMilitaryCompaniesCount();
         int pc = informer.getPassengerCompaniesCount();
         militaryCompanies = new MilitaryCompany[mc];
-        PassengerCompanies = new PassengerCompany[pc];
+        passengerCompanies = new PassengerCompany[pc];
         for(int i = 0; i<mc; i++ )
         {
             militaryCompanies[i] = new MilitaryCompany("MILITARY_"+String.valueOf(i));
@@ -29,7 +29,7 @@ public class Manager
 
         for(int i = 0; i<pc; i++)
         {
-            PassengerCompanies[i] = new PassengerCompany("PASSENGER_"+String.valueOf(i));
+            passengerCompanies[i] = new PassengerCompany("PASSENGER_"+String.valueOf(i));
         }
 
         tenders = new ArrayList<Tender>();
@@ -50,16 +50,35 @@ public class Manager
     public boolean CheaperBuy(int needBuy, Date timeLimit, boolean isMilitary)
     {
         int totalPlanes = 0;
+        int readyPlanes = 0;
         SimpleDateFormat formattedDate = new SimpleDateFormat("dd.MM.yyyy");
         Company[] cmp;
         if (isMilitary)
+        {
             cmp = this.militaryCompanies;
-        else cmp = this.PassengerCompanies;
+            readyPlanes = this.militaryCompanies[0].getReadyPlanes();
+        }
+        else cmp = this.passengerCompanies;
 
         cmp = SortByCost(cmp);
+
         long first = (timeLimit.getTime() - new Date(0).getTime())/ (24 * 60 * 60 * 1000);
+
         for(int i=0; (i<cmp.length) && (totalPlanes != needBuy); i++)
         {
+            if (readyPlanes>= needBuy - totalPlanes)
+            {
+                Date tmpTime = new Date(System.currentTimeMillis());
+                int canBuy = needBuy - totalPlanes;
+                int tmpSum = canBuy*cmp[i].getCost();
+                totalSum+=tmpSum;
+                tenders.add(new Tender(cmp[i].getName(),canBuy,isMilitary,cmp[i].getCost(),tmpSum,formattedDate.format(tmpTime)));
+                return true;
+            }
+
+            totalPlanes += readyPlanes;
+            int tmpSum = readyPlanes * cmp[i].getCost();
+
             Date tmp = cmp[i].getTime();
             long second = (tmp.getTime()- new Date(0).getTime())/ (24 * 60 * 60 * 1000);
             if (second == 0)
@@ -70,10 +89,10 @@ public class Manager
                 if (canBuy + totalPlanes > needBuy)
                     canBuy = needBuy - totalPlanes;
                 totalPlanes += canBuy;
-                int tmpSum = (int) canBuy * cmp[i].getCost();
+                tmpSum += (int) canBuy * cmp[i].getCost();
                 Date tmpTime = new Date(System.currentTimeMillis()+canBuy * cmp[i].getTime().getTime());
                 totalSum += tmpSum;
-                tenders.add(new Tender(cmp[i].getName(), (int)canBuy, isMilitary, cmp[i].getCost (), tmpSum, formattedDate.format(tmpTime)));
+                tenders.add(new Tender(cmp[i].getName(), (int)canBuy+readyPlanes, isMilitary, cmp[i].getCost (), tmpSum, formattedDate.format(tmpTime)));
             }
         }
         return  (totalPlanes == needBuy);

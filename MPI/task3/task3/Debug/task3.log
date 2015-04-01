@@ -1,0 +1,36 @@
+﻿Build started 29.03.2015 14:24:41.
+     1>Project "D:\Labs\3-course\2-semester\task3\task3\task3.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\task3.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt task3.cpp
+         task3.cpp
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(55): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdlib.h(867) : see declaration of 'itoa'
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(56): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(175) : see declaration of 'strncat'
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(57): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(175) : see declaration of 'strncat'
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(58): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(63): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdlib.h(867) : see declaration of 'itoa'
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(64): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(175) : see declaration of 'strncat'
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(65): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(175) : see declaration of 'strncat'
+     1>d:\labs\3-course\2-semester\task3\task3\task3.cpp(51): warning C4101: 'status' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Labs\3-course\2-semester\task3\Debug\task3.exe" /INCREMENTAL:NO /NOLOGO msmpi.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\task3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Labs\3-course\2-semester\task3\Debug\task3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Labs\3-course\2-semester\task3\Debug\task3.lib" /MACHINE:X86 Debug\stdafx.obj
+         Debug\task3.obj
+     1>stdafx.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         task3.vcxproj -> D:\Labs\3-course\2-semester\task3\Debug\task3.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Labs\3-course\2-semester\task3\Debug\task3.exe;#1" /manifest Debug\task3.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\task3.unsuccessfulbuild".
+         Touching "Debug\task3.lastbuildstate".
+     1>Done Building Project "D:\Labs\3-course\2-semester\task3\task3\task3.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.90

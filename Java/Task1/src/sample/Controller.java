@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 
 public class Controller
@@ -22,7 +23,9 @@ public class Controller
     @FXML
     TextField ShowPlanesTimeLimitMil;
     @FXML
-    Button TestButton;
+    Button startButton;
+    @FXML
+    Button getHistoryButton;
     @FXML
     TableView<Tender> tenderTable;
     @FXML
@@ -39,7 +42,7 @@ public class Controller
     TableColumn<Tender,Boolean> isMilitary;
 
     @FXML
-    void onClick()
+    void onStart()
     {
         tenderData.clear();
         ShowPlanesCost.setText("");
@@ -49,6 +52,14 @@ public class Controller
             ShowPlanesCost.setText(String.valueOf(mng.getTotalSum()));
             for (int i = 0; i < mng.getTenders().size(); i++) {
                 tenderData.add(mng.getTenders().get(i));
+            }
+            tenderTable.setItems(tenderData);
+            db db = new db();
+            if (db.connect())
+            {
+                for (int i = 0; i < mng.getTenders().size(); i++)
+                    db.insertData(mng.getTenders().get(i));
+                db.closeDB();
             }
         }
         SimpleDateFormat formattedDate = new SimpleDateFormat("dd.MM.yyyy");
@@ -66,14 +77,38 @@ public class Controller
         timeToBuild.setCellValueFactory(new PropertyValueFactory<Tender, String>("timeToBuild"));
         isMilitary.setCellValueFactory(new PropertyValueFactory<Tender, Boolean>("isMilitary"));
 
-        tenderTable.setItems(tenderData);
+    }
+
+    @FXML
+    void onGetHistory()
+    {
+        ShowPlanesCost.setText("");
+        ShowPlanesCountMil.clear();
+        ShowPlanesCountPass.clear();
+        ShowPlanesTimeLimitMil.clear();
+        ShowPlanesTimeLimitPass.clear();
         db db = new db();
         if (db.connect())
         {
-            for (int i = 0; i < mng.getTenders().size(); i++)
-                db.insertData(mng.getTenders().get(i));
-            db.getData();
+            List<Tender> tnd = db.getData();
+            db.closeDB();
+            tenderData.clear();
+
+            for (int i = 0; i < tnd.size(); i++)
+            {
+                tenderData.add(tnd.get(i));
+            }
+            if (tenderData.size() > 0)
+            {
+                tenderTable.setItems(tenderData);
+                companyNumber.setCellValueFactory(new PropertyValueFactory<Tender, String>("companyNumber"));
+                countAirplanes.setCellValueFactory(new PropertyValueFactory<Tender, Integer>("countAirplanes"));
+                costByOne.setCellValueFactory(new PropertyValueFactory<Tender, Integer>("costByOne"));
+                totalCost.setCellValueFactory(new PropertyValueFactory<Tender, Integer>("costByAll"));
+                timeToBuild.setCellValueFactory(new PropertyValueFactory<Tender, String>("timeToBuild"));
+                isMilitary.setCellValueFactory(new PropertyValueFactory<Tender, Boolean>("isMilitary"));
+            }
+
         }
-        db.closeDB();
     }
 }

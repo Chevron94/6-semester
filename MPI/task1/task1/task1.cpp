@@ -1,5 +1,6 @@
 // task1.cpp : Defines the entry point for the console application.
-//
+//x1..x(k/2) = A
+//x((k/2)+1)..xn = B
 
 #include "stdafx.h"
 #include <mpi.h>
@@ -19,8 +20,6 @@ int _tmain(int argc, char* argv[])
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &numproc);
-//	if (numproc<3) 
-	//	MPI_Abort(MPI_COMM_WORLD, 0);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 	if (rank == 0)
 	{
@@ -32,7 +31,7 @@ int _tmain(int argc, char* argv[])
 		cout << "Enter N\n";
 		do
 			cin >> N;
-		while (N<2);
+		while (N<=0);
 
 		m = N/((numproc-1)/2); // размерность кусков вектора 
 		if (N%((numproc-1)/2) != 0)
@@ -44,7 +43,7 @@ int _tmain(int argc, char* argv[])
 		{
 			cnt = 0;
 		}
-		for (int i=1;i<=numproc/2;i++)
+		for (int i=1;(i<=numproc/2);i++)
 		{
 			if (cnt > 0)
 			{
@@ -58,9 +57,9 @@ int _tmain(int argc, char* argv[])
 			}
 		}
 
-		for (int i=0;i<numproc/2;i++)
+		for (int i=numproc/2+1;(i<numproc);i++)
 		{
-			MPI_Recv(&tmp_res, 1, MPI_INT, MPI_ANY_SOURCE, tag, MPI_COMM_WORLD, &status);
+			MPI_Recv(&tmp_res, 1, MPI_INT, i, tag, MPI_COMM_WORLD, &status);
 			res += tmp_res;
 		}
 		cout << "Result: " << res << '\n';
@@ -70,7 +69,7 @@ int _tmain(int argc, char* argv[])
 		MPI_Recv(&m, 1, MPI_INT, 0, tag, MPI_COMM_WORLD, &status);
 		int *x;
 		x = new int[m];
-		srand(time(NULL));
+		srand(time(NULL)+rank);
 		char str[100]="Process: ";
 		char buf[5];
 		itoa(rank,buf,10);
@@ -79,7 +78,7 @@ int _tmain(int argc, char* argv[])
 
 		for (int i = 0; i<m; i++)
 		{
-			x[i] = x[i]=rand()%100;
+			x[i] = x[i]=rand()%(13*13*rank);
 			itoa(x[i],buf,10);
 			strncat(str,buf,strlen(buf));
 			strncat(str,", ",2);
