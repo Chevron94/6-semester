@@ -12,11 +12,11 @@ public class UserDto
     private String login;
     @Size(min = 8, message = "Поле \"Password\" должно быть длиннее 8 символов")
     private String password;
-//    @Size(min = 1, message = "Поле \"Name\" не заполнено")
+    @Size(min = 1, message = "Поле \"Name\" не заполнено")
     private String name;
-//    @Size(min = 1, message = "Поле \"Surname\" не заполнено")
+    @Size(min = 1, message = "Поле \"Surname\" не заполнено")
     private String surname;
- //   @Size(min = 7, message = "Поле \"Phone\" не заполнено")
+    @Size(min = 7, message = "Поле \"Phone\" не заполнено")
     private String phone;
 
     public String getName() {
@@ -45,11 +45,6 @@ public class UserDto
 
     public UserDto()
     {
-        name = "";
-        surname = "";
-        phone = "";
-        login = "";
-        password = "";
     }
 
     public String getLogin() {

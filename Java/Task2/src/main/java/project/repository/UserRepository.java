@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface UserRepository extends CrudRepository<User,Integer>
 {
-    @Query(value = "select count (*) from user where user.login =:login and user.password =:password",nativeQuery = true)
+    @Query(value = "select u.ID_USER from user u where u.login =:login and u.password =:password",nativeQuery = true)
     public int checkUser(@Param("login") String login, @Param("password") String password);
 
     @Query(value = "select count (*) from user where user.login =:login",nativeQuery = true)

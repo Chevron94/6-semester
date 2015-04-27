@@ -1,0 +1,27 @@
+﻿Build started 07.04.2015 14:20:54.
+     1>Project "D:\Labs\Task_3\Task_3\Task_3.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Task_3.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\Task_3.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp Task_3.cpp
+         Task_3.cpp
+     1>d:\labs\task_3\task_3\task_3.cpp(27): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+         stdafx.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Labs\Task_3\Debug\Task_3.exe" /INCREMENTAL:NO /NOLOGO mpich.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Task_3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Labs\Task_3\Debug\Task_3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Labs\Task_3\Debug\Task_3.lib" /MACHINE:X86 Debug\stdafx.obj
+         Debug\Task_3.obj
+     1>stdafx.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         Task_3.vcxproj -> D:\Labs\Task_3\Debug\Task_3.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Labs\Task_3\Debug\Task_3.exe;#1" /manifest Debug\Task_3.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\Task_3.unsuccessfulbuild".
+         Touching "Debug\Task_3.lastbuildstate".
+     1>Done Building Project "D:\Labs\Task_3\Task_3\Task_3.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.98

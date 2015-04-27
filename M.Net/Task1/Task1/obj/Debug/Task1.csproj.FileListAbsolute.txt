@@ -1,0 +1,6 @@
+D:\Labs\3-course\2-semester\M.Net\Task1\Task1\bin\Task1.dll
+D:\Labs\3-course\2-semester\M.Net\Task1\Task1\bin\Task1.pdb
+D:\Labs\3-course\2-semester\M.Net\Task1\Task1\obj\Debug\Task1.dll
+D:\Labs\3-course\2-semester\M.Net\Task1\Task1\obj\Debug\Task1.pdb
+D:\Labs\3-course\2-semester\M.Net\Task1\Task1\bin\App_Data\University.sdf
+D:\Labs\3-course\2-semester\M.Net\Task1\Task1\obj\Debug\Task1.csprojResolveAssemblyReference.cache

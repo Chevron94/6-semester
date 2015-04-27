@@ -52,9 +52,18 @@ public class UserService
     }
 
     @Transactional
-    public boolean Check(String login, String password)
+    public int Check(String login, String password)
     {
-        return userRepository.checkUser(login, password) == 1;
+        int id;
+        try
+        {
+           id = userRepository.checkUser(login, password);
+        }
+        catch (Exception e)
+        {
+            id = -1;
+        }
+        return id;
     }
     public boolean Check(String login)
     {

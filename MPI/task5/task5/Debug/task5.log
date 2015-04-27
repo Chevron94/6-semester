@@ -1,0 +1,27 @@
+﻿Build started 11.04.2015 13:37:28.
+     1>Project "D:\Labs\3-course\2-semester\MPI\task5\task5\task5.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\task5.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\task5.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp task5.cpp
+         task5.cpp
+     1>d:\labs\3-course\2-semester\mpi\task5\task5\task5.cpp(52): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         stdafx.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Labs\3-course\2-semester\MPI\task5\Debug\task5.exe" /INCREMENTAL:NO /NOLOGO mpich.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\task5.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Labs\3-course\2-semester\MPI\task5\Debug\task5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Labs\3-course\2-semester\MPI\task5\Debug\task5.lib" /MACHINE:X86 Debug\stdafx.obj
+         Debug\task5.obj
+     1>stdafx.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         task5.vcxproj -> D:\Labs\3-course\2-semester\MPI\task5\Debug\task5.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Labs\3-course\2-semester\MPI\task5\Debug\task5.exe;#1" /manifest Debug\task5.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\task5.unsuccessfulbuild".
+         Touching "Debug\task5.lastbuildstate".
+     1>Done Building Project "D:\Labs\3-course\2-semester\MPI\task5\task5\task5.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.40

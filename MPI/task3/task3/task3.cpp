@@ -1,4 +1,4 @@
-// task1.cpp : Defines the entry point for the console application.
+// task3.cpp : Defines the entry point for the console application.
 //максимальная степень двойки, не превосходящую максимальное значение
 
 #include "stdafx.h"
@@ -7,10 +7,9 @@
 #include <time.h>
 #include <iostream>
 #include <string>
+#pragma warning(disable : 4996)
 
 using namespace std;
-void max_pow(int* , int* , int* , MPI_Datatype *);
-
 int calc_pow(int max)
 {
 	if (max<=0)
@@ -22,26 +21,27 @@ int calc_pow(int max)
 		rv++;
 		max = (max >> 1);
 	}
-	return rv;
+	int res = pow(2.0,rv);
+	return res;
 }
 
 void max_pow(int* invec, int* outvec, int* len, MPI_Datatype *dtp)
 {
-	int max = invec[0];
-	for(int i = 0; i<*len; i++)
-		if (max < invec[i])
-			max = invec[i];
-	int maxp = calc_pow(max);
-	for(int i = 0; i<*len; i++)
-		outvec[i] = maxp;
+	int cnt = *len;
+	for(int i = 0; i< cnt; i++)
+	{
+		int tmp_pow = calc_pow(invec[i]);
+		if (tmp_pow > outvec[i])
+			outvec[i] = tmp_pow;
+	}
 }
 
 
 int _tmain(int argc, char* argv[])
 {
-	const int n = 5;
+	const int n = 10;
 	int* data = new int[n];
-	int* result = new int[n];
+	int* result =new int[n];
 	int rank;
 	int numproc;
 	int tag = 0;
@@ -65,9 +65,10 @@ int _tmain(int argc, char* argv[])
 		strncat(str,", ",2);
 		result[i]=0;
 	}
-	cout << str << endl;;
+	cout << str << endl;
+
 	MPI_Op_create((MPI_User_function *)max_pow, 1, &op);
-	MPI_Reduce(&data,&result,n,MPI_INT,op,0,MPI_COMM_WORLD);
+	MPI_Reduce(data,result,n,MPI_INT,op,0,MPI_COMM_WORLD);
 	MPI_Op_free(&op);
 
 	if (rank == 0)
@@ -75,10 +76,11 @@ int _tmain(int argc, char* argv[])
 		cout << "powers:" << endl;
 		for(int i = 0; i<n; i++)
 			cout << result[i] << ' ';
+		cout << endl;
 	}
-
+	delete data;
+	delete result;
 	MPI_Finalize();
 	system("pause");
 	return 0;
 }
-

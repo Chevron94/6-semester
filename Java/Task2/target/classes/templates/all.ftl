@@ -1,9 +1,21 @@
 <#include "/parts/top.ftl">
-<div class="container-fluid" align="center">
+<#if errors??>
+<div class="alert alert-danger" role="alert">
+    <#list errors as error>
+        <p>${error}</p>
+    </#list>
+</div>
+</#if>
+<style>
+    table {
+        border: 5px solid #000000; /* Рамка вокруг таблицы */
+    }
+</style>
+<div  align="center" class="container" width="768px">
     <h3>Все пользователи</h3>
     <div class="row">
-        <div class="col-sm-8">
-            <table class="table table-striped" align="center">
+        <div class="table-responsive">
+            <table class="table table-striped">
                 <tr>
                     <th>ID</th>
                     <th>Login</th>
@@ -25,7 +37,9 @@
             </table>
         </div>
     </div>
-    <button name="edit" type="button" class="btn btn-default">Изменить данные</button>
-    <button name="delete" type="button" class="btn btn-default">Удалить аккаунт</button>
+
+    <a class="btn btn-primary" href = "/update/${id}">Изменить данные</a>
+    <a class="btn btn-primary" href = "/delete/${id}">Удалить аккаунт</a>
+    <a class="btn btn-primary" href = "/logout">Выйти</a>
 </div>
 <#include "/parts/bottom.ftl">
