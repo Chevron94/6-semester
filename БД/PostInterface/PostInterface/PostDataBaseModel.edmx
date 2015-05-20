@@ -1,0 +1,1416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PostDBModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PostDBModelStoreContainer">
+          <EntitySet Name="Area" EntityType="PostDBModel.Store.Area" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="PostDBModel.Store.City" store:Type="Tables" />
+          <EntitySet Name="City_Type" EntityType="PostDBModel.Store.City_Type" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="PostDBModel.Store.Client" store:Type="Tables" />
+          <EntitySet Name="Consignment" EntityType="PostDBModel.Store.Consignment" store:Type="Tables" />
+          <EntitySet Name="Consignment_Type" EntityType="PostDBModel.Store.Consignment_Type" store:Type="Tables" />
+          <EntitySet Name="Full_Letter_Status" EntityType="PostDBModel.Store.Full_Letter_Status" store:Type="Tables" />
+          <EntitySet Name="Letter_Status" EntityType="PostDBModel.Store.Letter_Status" store:Type="Tables" />
+          <EntitySet Name="Office" EntityType="PostDBModel.Store.Office" store:Type="Tables" />
+          <EntitySet Name="Post_Office" EntityType="PostDBModel.Store.Post_Office" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="PostDBModel.Store.Region" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="PostDBModel.Store.Street" store:Type="Tables" />
+          <EntitySet Name="Street_Type" EntityType="PostDBModel.Store.Street_Type" store:Type="Tables" />
+          <EntitySet Name="Track_List" EntityType="PostDBModel.Store.Track_List" store:Type="Tables" />
+          <EntitySet Name="Transport_Company" EntityType="PostDBModel.Store.Transport_Company" store:Type="Tables" />
+          <EntitySet Name="Transport_Cost" EntityType="PostDBModel.Store.Transport_Cost" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="PostDBModel.Store.Worker" store:Type="Tables" />
+          <AssociationSet Name="FK_City_0" Association="PostDBModel.Store.FK_City_0">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_1" Association="PostDBModel.Store.FK_City_1">
+            <End Role="City_Type" EntitySet="City_Type" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_0" Association="PostDBModel.Store.FK_Client_0">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_0" Association="PostDBModel.Store.FK_Consignment_0">
+            <End Role="Consignment_Type" EntitySet="Consignment_Type" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_1" Association="PostDBModel.Store.FK_Consignment_1">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_2" Association="PostDBModel.Store.FK_Consignment_2">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_3" Association="PostDBModel.Store.FK_Consignment_3">
+            <End Role="Transport_Company" EntitySet="Transport_Company" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_4" Association="PostDBModel.Store.FK_Consignment_4">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_5" Association="PostDBModel.Store.FK_Consignment_5">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Full_Letter_Status_0" Association="PostDBModel.Store.FK_Full_Letter_Status_0">
+            <End Role="Letter_Status" EntitySet="Letter_Status" />
+            <End Role="Full_Letter_Status" EntitySet="Full_Letter_Status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Office_0" Association="PostDBModel.Store.FK_Post_Office_0">
+            <End Role="City" EntitySet="City" />
+            <End Role="Post_Office" EntitySet="Post_Office" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Region_0" Association="PostDBModel.Store.FK_Region_0">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Street_0" Association="PostDBModel.Store.FK_Street_0">
+            <End Role="City" EntitySet="City" />
+            <End Role="Street" EntitySet="Street" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Street_1" Association="PostDBModel.Store.FK_Street_1">
+            <End Role="Street_Type" EntitySet="Street_Type" />
+            <End Role="Street" EntitySet="Street" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Track_List_0" Association="PostDBModel.Store.FK_Track_List_0">
+            <End Role="Full_Letter_Status" EntitySet="Full_Letter_Status" />
+            <End Role="Track_List" EntitySet="Track_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Track_List_1" Association="PostDBModel.Store.FK_Track_List_1">
+            <End Role="Consignment" EntitySet="Consignment" />
+            <End Role="Track_List" EntitySet="Track_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Track_List_2" Association="PostDBModel.Store.FK_Track_List_2">
+            <End Role="Post_Office" EntitySet="Post_Office" />
+            <End Role="Track_List" EntitySet="Track_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Cost_0" Association="PostDBModel.Store.FK_Transport_Cost_0">
+            <End Role="Transport_Company" EntitySet="Transport_Company" />
+            <End Role="Transport_Cost" EntitySet="Transport_Cost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Cost_1" Association="PostDBModel.Store.FK_Transport_Cost_1">
+            <End Role="City" EntitySet="City" />
+            <End Role="Transport_Cost" EntitySet="Transport_Cost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Cost_2" Association="PostDBModel.Store.FK_Transport_Cost_2">
+            <End Role="City" EntitySet="City" />
+            <End Role="Transport_Cost" EntitySet="Transport_Cost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_0" Association="PostDBModel.Store.FK_Worker_0">
+            <End Role="Office" EntitySet="Office" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID_Area" />
+          </Key>
+          <Property Name="ID_Area" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID_City" />
+          </Key>
+          <Property Name="ID_City" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ID_Region" Type="integer" Nullable="false" />
+          <Property Name="ID_City_Type" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City_Type">
+          <Key>
+            <PropertyRef Name="ID_City_Type" />
+          </Key>
+          <Property Name="ID_City_Type" Type="integer" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Index" Type="integer" Nullable="false" />
+          <Property Name="ID_Street" Type="integer" Nullable="false" />
+          <Property Name="House_Number" Type="integer" Nullable="false" />
+          <Property Name="Building" Type="nvarchar" MaxLength="5" />
+          <Property Name="Flat" Type="integer" />
+        </EntityType>
+        <EntityType Name="Consignment">
+          <Key>
+            <PropertyRef Name="ID_Consignment" />
+          </Key>
+          <Property Name="ID_Consignment" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Consignment_Type" Type="integer" Nullable="false" />
+          <Property Name="ID_Sender" Type="integer" Nullable="false" />
+          <Property Name="ID_Reciever" Type="integer" Nullable="false" />
+          <Property Name="Weight" Type="integer" Nullable="false" />
+          <Property Name="Worth" Type="integer" Nullable="false" />
+          <Property Name="ID_Transport_Company" Type="integer" Nullable="false" />
+          <Property Name="Total_Cost" Type="integer" Nullable="false" />
+          <Property Name="ID_Office_Worker" Type="integer" Nullable="false" />
+          <Property Name="ID_Courier" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Consignment_Type">
+          <Key>
+            <PropertyRef Name="ID_Consignment_Type" />
+          </Key>
+          <Property Name="ID_Consignment_Type" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Full_Letter_Status">
+          <Key>
+            <PropertyRef Name="ID_Full_Letter_Status" />
+          </Key>
+          <Property Name="ID_Full_Letter_Status" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Full_Status" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="ID_Letter_Status" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Letter_Status">
+          <Key>
+            <PropertyRef Name="ID_Letter_Status" />
+          </Key>
+          <Property Name="ID_Letter_Status" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="ID_Office" />
+          </Key>
+          <Property Name="ID_Office" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Post_Office">
+          <Key>
+            <PropertyRef Name="Post_Index" />
+          </Key>
+          <Property Name="Post_Index" Type="integer" Nullable="false" />
+          <Property Name="ID_City" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID_Region" />
+          </Key>
+          <Property Name="ID_Region" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ID_Area" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="ID_Street" />
+          </Key>
+          <Property Name="ID_Street" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ID_Street_Type" Type="integer" Nullable="false" />
+          <Property Name="ID_City" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street_Type">
+          <Key>
+            <PropertyRef Name="ID_Street_Type" />
+          </Key>
+          <Property Name="ID_Street_Type" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Track_List">
+          <Key>
+            <PropertyRef Name="ID_Consignment" />
+            <PropertyRef Name="ID_Full_Letter_Status" />
+            <PropertyRef Name="Post_Index" />
+          </Key>
+          <Property Name="ID_Consignment" Type="integer" Nullable="false" />
+          <Property Name="ID_Full_Letter_Status" Type="integer" Nullable="false" />
+          <Property Name="Post_Index" Type="integer" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transport_Company">
+          <Key>
+            <PropertyRef Name="ID_Transport_Company" />
+          </Key>
+          <Property Name="ID_Transport_Company" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Transport_Cost">
+          <Key>
+            <PropertyRef Name="ID_Transport_Company" />
+            <PropertyRef Name="ID_City_From" />
+            <PropertyRef Name="ID_City_To" />
+          </Key>
+          <Property Name="ID_Transport_Company" Type="integer" Nullable="false" />
+          <Property Name="ID_City_From" Type="integer" Nullable="false" />
+          <Property Name="ID_City_To" Type="integer" Nullable="false" />
+          <Property Name="Cost" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Passport_Serie" Type="integer" Nullable="false" />
+          <Property Name="Passport_Number" Type="integer" Nullable="false" />
+          <Property Name="ID_Office" Type="integer" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_City_0">
+          <End Role="Region" Type="PostDBModel.Store.Region" Multiplicity="1" />
+          <End Role="City" Type="PostDBModel.Store.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="ID_Region" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ID_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_1">
+          <End Role="City_Type" Type="PostDBModel.Store.City_Type" Multiplicity="1" />
+          <End Role="City" Type="PostDBModel.Store.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City_Type">
+              <PropertyRef Name="ID_City_Type" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ID_City_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_0">
+          <End Role="Street" Type="PostDBModel.Store.Street" Multiplicity="1" />
+          <End Role="Client" Type="PostDBModel.Store.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="ID_Street" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_Street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_0">
+          <End Role="Consignment_Type" Type="PostDBModel.Store.Consignment_Type" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consignment_Type">
+              <PropertyRef Name="ID_Consignment_Type" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Consignment_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_1">
+          <End Role="Client" Type="PostDBModel.Store.Client" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_2">
+          <End Role="Client" Type="PostDBModel.Store.Client" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Reciever" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_3">
+          <End Role="Transport_Company" Type="PostDBModel.Store.Transport_Company" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport_Company">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_4">
+          <End Role="Worker" Type="PostDBModel.Store.Worker" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Office_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_5">
+          <End Role="Worker" Type="PostDBModel.Store.Worker" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Courier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Full_Letter_Status_0">
+          <End Role="Letter_Status" Type="PostDBModel.Store.Letter_Status" Multiplicity="1" />
+          <End Role="Full_Letter_Status" Type="PostDBModel.Store.Full_Letter_Status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Letter_Status">
+              <PropertyRef Name="ID_Letter_Status" />
+            </Principal>
+            <Dependent Role="Full_Letter_Status">
+              <PropertyRef Name="ID_Letter_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Office_0">
+          <End Role="City" Type="PostDBModel.Store.City" Multiplicity="1" />
+          <End Role="Post_Office" Type="PostDBModel.Store.Post_Office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Post_Office">
+              <PropertyRef Name="ID_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Region_0">
+          <End Role="Area" Type="PostDBModel.Store.Area" Multiplicity="1" />
+          <End Role="Region" Type="PostDBModel.Store.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID_Area" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="ID_Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Street_0">
+          <End Role="City" Type="PostDBModel.Store.City" Multiplicity="1" />
+          <End Role="Street" Type="PostDBModel.Store.Street" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Street">
+              <PropertyRef Name="ID_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Street_1">
+          <End Role="Street_Type" Type="PostDBModel.Store.Street_Type" Multiplicity="1" />
+          <End Role="Street" Type="PostDBModel.Store.Street" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street_Type">
+              <PropertyRef Name="ID_Street_Type" />
+            </Principal>
+            <Dependent Role="Street">
+              <PropertyRef Name="ID_Street_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Track_List_0">
+          <End Role="Full_Letter_Status" Type="PostDBModel.Store.Full_Letter_Status" Multiplicity="1" />
+          <End Role="Track_List" Type="PostDBModel.Store.Track_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Full_Letter_Status">
+              <PropertyRef Name="ID_Full_Letter_Status" />
+            </Principal>
+            <Dependent Role="Track_List">
+              <PropertyRef Name="ID_Full_Letter_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Track_List_1">
+          <End Role="Consignment" Type="PostDBModel.Store.Consignment" Multiplicity="1" />
+          <End Role="Track_List" Type="PostDBModel.Store.Track_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consignment">
+              <PropertyRef Name="ID_Consignment" />
+            </Principal>
+            <Dependent Role="Track_List">
+              <PropertyRef Name="ID_Consignment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Track_List_2">
+          <End Role="Post_Office" Type="PostDBModel.Store.Post_Office" Multiplicity="1" />
+          <End Role="Track_List" Type="PostDBModel.Store.Track_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post_Office">
+              <PropertyRef Name="Post_Index" />
+            </Principal>
+            <Dependent Role="Track_List">
+              <PropertyRef Name="Post_Index" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Cost_0">
+          <End Role="Transport_Company" Type="PostDBModel.Store.Transport_Company" Multiplicity="1" />
+          <End Role="Transport_Cost" Type="PostDBModel.Store.Transport_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport_Company">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Principal>
+            <Dependent Role="Transport_Cost">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Cost_1">
+          <End Role="City" Type="PostDBModel.Store.City" Multiplicity="1" />
+          <End Role="Transport_Cost" Type="PostDBModel.Store.Transport_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Transport_Cost">
+              <PropertyRef Name="ID_City_From" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Cost_2">
+          <End Role="City" Type="PostDBModel.Store.City" Multiplicity="1" />
+          <End Role="Transport_Cost" Type="PostDBModel.Store.Transport_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Transport_Cost">
+              <PropertyRef Name="ID_City_To" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_0">
+          <End Role="Office" Type="PostDBModel.Store.Office" Multiplicity="1" />
+          <End Role="Worker" Type="PostDBModel.Store.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="ID_Office" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="ID_Office" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PostDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PostDataBaseContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Area" EntityType="PostDBModel.Area" />
+          <EntitySet Name="City" EntityType="PostDBModel.City" />
+          <EntitySet Name="City_Type" EntityType="PostDBModel.City_Type" />
+          <EntitySet Name="Client" EntityType="PostDBModel.Client" />
+          <EntitySet Name="Consignment" EntityType="PostDBModel.Consignment" />
+          <EntitySet Name="Consignment_Type" EntityType="PostDBModel.Consignment_Type" />
+          <EntitySet Name="Full_Letter_Status" EntityType="PostDBModel.Full_Letter_Status" />
+          <EntitySet Name="Letter_Status" EntityType="PostDBModel.Letter_Status" />
+          <EntitySet Name="Office" EntityType="PostDBModel.Office" />
+          <EntitySet Name="Post_Office" EntityType="PostDBModel.Post_Office" />
+          <EntitySet Name="Region" EntityType="PostDBModel.Region" />
+          <EntitySet Name="Street" EntityType="PostDBModel.Street" />
+          <EntitySet Name="Street_Type" EntityType="PostDBModel.Street_Type" />
+          <EntitySet Name="Track_List" EntityType="PostDBModel.Track_List" />
+          <EntitySet Name="Transport_Company" EntityType="PostDBModel.Transport_Company" />
+          <EntitySet Name="Transport_Cost" EntityType="PostDBModel.Transport_Cost" />
+          <EntitySet Name="Worker" EntityType="PostDBModel.Worker" />
+          <AssociationSet Name="FK_Region_0" Association="PostDBModel.FK_Region_0">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_0" Association="PostDBModel.FK_City_0">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_1" Association="PostDBModel.FK_City_1">
+            <End Role="City_Type" EntitySet="City_Type" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Office_0" Association="PostDBModel.FK_Post_Office_0">
+            <End Role="City" EntitySet="City" />
+            <End Role="Post_Office" EntitySet="Post_Office" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Street_0" Association="PostDBModel.FK_Street_0">
+            <End Role="City" EntitySet="City" />
+            <End Role="Street" EntitySet="Street" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Cost_1" Association="PostDBModel.FK_Transport_Cost_1">
+            <End Role="City" EntitySet="City" />
+            <End Role="Transport_Cost" EntitySet="Transport_Cost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Cost_2" Association="PostDBModel.FK_Transport_Cost_2">
+            <End Role="City" EntitySet="City" />
+            <End Role="Transport_Cost" EntitySet="Transport_Cost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_0" Association="PostDBModel.FK_Client_0">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_1" Association="PostDBModel.FK_Consignment_1">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_2" Association="PostDBModel.FK_Consignment_2">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_0" Association="PostDBModel.FK_Consignment_0">
+            <End Role="Consignment_Type" EntitySet="Consignment_Type" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_3" Association="PostDBModel.FK_Consignment_3">
+            <End Role="Transport_Company" EntitySet="Transport_Company" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_4" Association="PostDBModel.FK_Consignment_4">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consignment_5" Association="PostDBModel.FK_Consignment_5">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Consignment" EntitySet="Consignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Track_List_1" Association="PostDBModel.FK_Track_List_1">
+            <End Role="Consignment" EntitySet="Consignment" />
+            <End Role="Track_List" EntitySet="Track_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Full_Letter_Status_0" Association="PostDBModel.FK_Full_Letter_Status_0">
+            <End Role="Letter_Status" EntitySet="Letter_Status" />
+            <End Role="Full_Letter_Status" EntitySet="Full_Letter_Status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Track_List_0" Association="PostDBModel.FK_Track_List_0">
+            <End Role="Full_Letter_Status" EntitySet="Full_Letter_Status" />
+            <End Role="Track_List" EntitySet="Track_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_0" Association="PostDBModel.FK_Worker_0">
+            <End Role="Office" EntitySet="Office" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Track_List_2" Association="PostDBModel.FK_Track_List_2">
+            <End Role="Post_Office" EntitySet="Post_Office" />
+            <End Role="Track_List" EntitySet="Track_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Street_1" Association="PostDBModel.FK_Street_1">
+            <End Role="Street_Type" EntitySet="Street_Type" />
+            <End Role="Street" EntitySet="Street" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Cost_0" Association="PostDBModel.FK_Transport_Cost_0">
+            <End Role="Transport_Company" EntitySet="Transport_Company" />
+            <End Role="Transport_Cost" EntitySet="Transport_Cost" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID_Area" />
+          </Key>
+          <Property Name="ID_Area" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Region" Relationship="PostDBModel.FK_Region_0" FromRole="Area" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID_City" />
+          </Key>
+          <Property Name="ID_City" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ID_Region" Type="Int64" Nullable="false" />
+          <Property Name="ID_City_Type" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Region" Relationship="PostDBModel.FK_City_0" FromRole="City" ToRole="Region" />
+          <NavigationProperty Name="City_Type" Relationship="PostDBModel.FK_City_1" FromRole="City" ToRole="City_Type" />
+          <NavigationProperty Name="Post_Office" Relationship="PostDBModel.FK_Post_Office_0" FromRole="City" ToRole="Post_Office" />
+          <NavigationProperty Name="Street" Relationship="PostDBModel.FK_Street_0" FromRole="City" ToRole="Street" />
+          <NavigationProperty Name="Transport_Cost" Relationship="PostDBModel.FK_Transport_Cost_1" FromRole="City" ToRole="Transport_Cost" />
+          <NavigationProperty Name="Transport_Cost1" Relationship="PostDBModel.FK_Transport_Cost_2" FromRole="City" ToRole="Transport_Cost" />
+        </EntityType>
+        <EntityType Name="City_Type">
+          <Key>
+            <PropertyRef Name="ID_City_Type" />
+          </Key>
+          <Property Name="ID_City_Type" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="City" Relationship="PostDBModel.FK_City_1" FromRole="City_Type" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Index" Type="Int64" Nullable="false" />
+          <Property Name="ID_Street" Type="Int64" Nullable="false" />
+          <Property Name="House_Number" Type="Int64" Nullable="false" />
+          <Property Name="Building" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Flat" Type="Int64" />
+          <NavigationProperty Name="Street" Relationship="PostDBModel.FK_Client_0" FromRole="Client" ToRole="Street" />
+          <NavigationProperty Name="Consignment" Relationship="PostDBModel.FK_Consignment_1" FromRole="Client" ToRole="Consignment" />
+          <NavigationProperty Name="Consignment1" Relationship="PostDBModel.FK_Consignment_2" FromRole="Client" ToRole="Consignment" />
+        </EntityType>
+        <EntityType Name="Consignment">
+          <Key>
+            <PropertyRef Name="ID_Consignment" />
+          </Key>
+          <Property Name="ID_Consignment" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Consignment_Type" Type="Int64" Nullable="false" />
+          <Property Name="ID_Sender" Type="Int64" Nullable="false" />
+          <Property Name="ID_Reciever" Type="Int64" Nullable="false" />
+          <Property Name="Weight" Type="Int64" Nullable="false" />
+          <Property Name="Worth" Type="Int64" Nullable="false" />
+          <Property Name="ID_Transport_Company" Type="Int64" Nullable="false" />
+          <Property Name="Total_Cost" Type="Int64" Nullable="false" />
+          <Property Name="ID_Office_Worker" Type="Int64" Nullable="false" />
+          <Property Name="ID_Courier" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="PostDBModel.FK_Consignment_1" FromRole="Consignment" ToRole="Client" />
+          <NavigationProperty Name="Client1" Relationship="PostDBModel.FK_Consignment_2" FromRole="Consignment" ToRole="Client" />
+          <NavigationProperty Name="Consignment_Type" Relationship="PostDBModel.FK_Consignment_0" FromRole="Consignment" ToRole="Consignment_Type" />
+          <NavigationProperty Name="Transport_Company" Relationship="PostDBModel.FK_Consignment_3" FromRole="Consignment" ToRole="Transport_Company" />
+          <NavigationProperty Name="Worker" Relationship="PostDBModel.FK_Consignment_4" FromRole="Consignment" ToRole="Worker" />
+          <NavigationProperty Name="Worker1" Relationship="PostDBModel.FK_Consignment_5" FromRole="Consignment" ToRole="Worker" />
+          <NavigationProperty Name="Track_List" Relationship="PostDBModel.FK_Track_List_1" FromRole="Consignment" ToRole="Track_List" />
+        </EntityType>
+        <EntityType Name="Consignment_Type">
+          <Key>
+            <PropertyRef Name="ID_Consignment_Type" />
+          </Key>
+          <Property Name="ID_Consignment_Type" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Consignment" Relationship="PostDBModel.FK_Consignment_0" FromRole="Consignment_Type" ToRole="Consignment" />
+        </EntityType>
+        <EntityType Name="Full_Letter_Status">
+          <Key>
+            <PropertyRef Name="ID_Full_Letter_Status" />
+          </Key>
+          <Property Name="ID_Full_Letter_Status" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Full_Status" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ID_Letter_Status" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Letter_Status" Relationship="PostDBModel.FK_Full_Letter_Status_0" FromRole="Full_Letter_Status" ToRole="Letter_Status" />
+          <NavigationProperty Name="Track_List" Relationship="PostDBModel.FK_Track_List_0" FromRole="Full_Letter_Status" ToRole="Track_List" />
+        </EntityType>
+        <EntityType Name="Letter_Status">
+          <Key>
+            <PropertyRef Name="ID_Letter_Status" />
+          </Key>
+          <Property Name="ID_Letter_Status" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Full_Letter_Status" Relationship="PostDBModel.FK_Full_Letter_Status_0" FromRole="Letter_Status" ToRole="Full_Letter_Status" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="ID_Office" />
+          </Key>
+          <Property Name="ID_Office" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Worker" Relationship="PostDBModel.FK_Worker_0" FromRole="Office" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Post_Office">
+          <Key>
+            <PropertyRef Name="Post_Index" />
+          </Key>
+          <Property Name="Post_Index" Type="Int64" Nullable="false" />
+          <Property Name="ID_City" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="PostDBModel.FK_Post_Office_0" FromRole="Post_Office" ToRole="City" />
+          <NavigationProperty Name="Track_List" Relationship="PostDBModel.FK_Track_List_2" FromRole="Post_Office" ToRole="Track_List" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID_Region" />
+          </Key>
+          <Property Name="ID_Region" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ID_Area" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="PostDBModel.FK_Region_0" FromRole="Region" ToRole="Area" />
+          <NavigationProperty Name="City" Relationship="PostDBModel.FK_City_0" FromRole="Region" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="ID_Street" />
+          </Key>
+          <Property Name="ID_Street" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ID_Street_Type" Type="Int64" Nullable="false" />
+          <Property Name="ID_City" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="PostDBModel.FK_Street_0" FromRole="Street" ToRole="City" />
+          <NavigationProperty Name="Client" Relationship="PostDBModel.FK_Client_0" FromRole="Street" ToRole="Client" />
+          <NavigationProperty Name="Street_Type" Relationship="PostDBModel.FK_Street_1" FromRole="Street" ToRole="Street_Type" />
+        </EntityType>
+        <EntityType Name="Street_Type">
+          <Key>
+            <PropertyRef Name="ID_Street_Type" />
+          </Key>
+          <Property Name="ID_Street_Type" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Street" Relationship="PostDBModel.FK_Street_1" FromRole="Street_Type" ToRole="Street" />
+        </EntityType>
+        <EntityType Name="Track_List">
+          <Key>
+            <PropertyRef Name="ID_Consignment" />
+            <PropertyRef Name="ID_Full_Letter_Status" />
+            <PropertyRef Name="Post_Index" />
+          </Key>
+          <Property Name="ID_Consignment" Type="Int64" Nullable="false" />
+          <Property Name="ID_Full_Letter_Status" Type="Int64" Nullable="false" />
+          <Property Name="Post_Index" Type="Int64" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Consignment" Relationship="PostDBModel.FK_Track_List_1" FromRole="Track_List" ToRole="Consignment" />
+          <NavigationProperty Name="Full_Letter_Status" Relationship="PostDBModel.FK_Track_List_0" FromRole="Track_List" ToRole="Full_Letter_Status" />
+          <NavigationProperty Name="Post_Office" Relationship="PostDBModel.FK_Track_List_2" FromRole="Track_List" ToRole="Post_Office" />
+        </EntityType>
+        <EntityType Name="Transport_Company">
+          <Key>
+            <PropertyRef Name="ID_Transport_Company" />
+          </Key>
+          <Property Name="ID_Transport_Company" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Consignment" Relationship="PostDBModel.FK_Consignment_3" FromRole="Transport_Company" ToRole="Consignment" />
+          <NavigationProperty Name="Transport_Cost" Relationship="PostDBModel.FK_Transport_Cost_0" FromRole="Transport_Company" ToRole="Transport_Cost" />
+        </EntityType>
+        <EntityType Name="Transport_Cost">
+          <Key>
+            <PropertyRef Name="ID_Transport_Company" />
+            <PropertyRef Name="ID_City_From" />
+            <PropertyRef Name="ID_City_To" />
+          </Key>
+          <Property Name="ID_Transport_Company" Type="Int64" Nullable="false" />
+          <Property Name="ID_City_From" Type="Int64" Nullable="false" />
+          <Property Name="ID_City_To" Type="Int64" Nullable="false" />
+          <Property Name="Cost" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="PostDBModel.FK_Transport_Cost_1" FromRole="Transport_Cost" ToRole="City" />
+          <NavigationProperty Name="City1" Relationship="PostDBModel.FK_Transport_Cost_2" FromRole="Transport_Cost" ToRole="City" />
+          <NavigationProperty Name="Transport_Company" Relationship="PostDBModel.FK_Transport_Cost_0" FromRole="Transport_Cost" ToRole="Transport_Company" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Passport_Serie" Type="Int64" Nullable="false" />
+          <Property Name="Passport_Number" Type="Int64" Nullable="false" />
+          <Property Name="ID_Office" Type="Int64" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Consignment" Relationship="PostDBModel.FK_Consignment_4" FromRole="Worker" ToRole="Consignment" />
+          <NavigationProperty Name="Consignment1" Relationship="PostDBModel.FK_Consignment_5" FromRole="Worker" ToRole="Consignment" />
+          <NavigationProperty Name="Office" Relationship="PostDBModel.FK_Worker_0" FromRole="Worker" ToRole="Office" />
+        </EntityType>
+        <Association Name="FK_Region_0">
+          <End Role="Area" Type="PostDBModel.Area" Multiplicity="1" />
+          <End Role="Region" Type="PostDBModel.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID_Area" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="ID_Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_0">
+          <End Role="Region" Type="PostDBModel.Region" Multiplicity="1" />
+          <End Role="City" Type="PostDBModel.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="ID_Region" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ID_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_1">
+          <End Role="City_Type" Type="PostDBModel.City_Type" Multiplicity="1" />
+          <End Role="City" Type="PostDBModel.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City_Type">
+              <PropertyRef Name="ID_City_Type" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ID_City_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Office_0">
+          <End Role="City" Type="PostDBModel.City" Multiplicity="1" />
+          <End Role="Post_Office" Type="PostDBModel.Post_Office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Post_Office">
+              <PropertyRef Name="ID_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Street_0">
+          <End Role="City" Type="PostDBModel.City" Multiplicity="1" />
+          <End Role="Street" Type="PostDBModel.Street" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Street">
+              <PropertyRef Name="ID_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Cost_1">
+          <End Role="City" Type="PostDBModel.City" Multiplicity="1" />
+          <End Role="Transport_Cost" Type="PostDBModel.Transport_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Transport_Cost">
+              <PropertyRef Name="ID_City_From" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Cost_2">
+          <End Role="City" Type="PostDBModel.City" Multiplicity="1" />
+          <End Role="Transport_Cost" Type="PostDBModel.Transport_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Transport_Cost">
+              <PropertyRef Name="ID_City_To" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_0">
+          <End Role="Street" Type="PostDBModel.Street" Multiplicity="1" />
+          <End Role="Client" Type="PostDBModel.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="ID_Street" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_Street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_1">
+          <End Role="Client" Type="PostDBModel.Client" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_2">
+          <End Role="Client" Type="PostDBModel.Client" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Reciever" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_0">
+          <End Role="Consignment_Type" Type="PostDBModel.Consignment_Type" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consignment_Type">
+              <PropertyRef Name="ID_Consignment_Type" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Consignment_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_3">
+          <End Role="Transport_Company" Type="PostDBModel.Transport_Company" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport_Company">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_4">
+          <End Role="Worker" Type="PostDBModel.Worker" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Office_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consignment_5">
+          <End Role="Worker" Type="PostDBModel.Worker" Multiplicity="1" />
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Consignment">
+              <PropertyRef Name="ID_Courier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Track_List_1">
+          <End Role="Consignment" Type="PostDBModel.Consignment" Multiplicity="1" />
+          <End Role="Track_List" Type="PostDBModel.Track_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consignment">
+              <PropertyRef Name="ID_Consignment" />
+            </Principal>
+            <Dependent Role="Track_List">
+              <PropertyRef Name="ID_Consignment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Full_Letter_Status_0">
+          <End Role="Letter_Status" Type="PostDBModel.Letter_Status" Multiplicity="1" />
+          <End Role="Full_Letter_Status" Type="PostDBModel.Full_Letter_Status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Letter_Status">
+              <PropertyRef Name="ID_Letter_Status" />
+            </Principal>
+            <Dependent Role="Full_Letter_Status">
+              <PropertyRef Name="ID_Letter_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Track_List_0">
+          <End Role="Full_Letter_Status" Type="PostDBModel.Full_Letter_Status" Multiplicity="1" />
+          <End Role="Track_List" Type="PostDBModel.Track_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Full_Letter_Status">
+              <PropertyRef Name="ID_Full_Letter_Status" />
+            </Principal>
+            <Dependent Role="Track_List">
+              <PropertyRef Name="ID_Full_Letter_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_0">
+          <End Role="Office" Type="PostDBModel.Office" Multiplicity="1" />
+          <End Role="Worker" Type="PostDBModel.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="ID_Office" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="ID_Office" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Track_List_2">
+          <End Role="Post_Office" Type="PostDBModel.Post_Office" Multiplicity="1" />
+          <End Role="Track_List" Type="PostDBModel.Track_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post_Office">
+              <PropertyRef Name="Post_Index" />
+            </Principal>
+            <Dependent Role="Track_List">
+              <PropertyRef Name="Post_Index" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Street_1">
+          <End Role="Street_Type" Type="PostDBModel.Street_Type" Multiplicity="1" />
+          <End Role="Street" Type="PostDBModel.Street" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street_Type">
+              <PropertyRef Name="ID_Street_Type" />
+            </Principal>
+            <Dependent Role="Street">
+              <PropertyRef Name="ID_Street_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Cost_0">
+          <End Role="Transport_Company" Type="PostDBModel.Transport_Company" Multiplicity="1" />
+          <End Role="Transport_Cost" Type="PostDBModel.Transport_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport_Company">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Principal>
+            <Dependent Role="Transport_Cost">
+              <PropertyRef Name="ID_Transport_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PostDBModelStoreContainer" CdmEntityContainer="PostDataBaseContext">
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="PostDBModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="PostDBModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Region" ColumnName="ID_Region" />
+                <ScalarProperty Name="ID_City_Type" ColumnName="ID_City_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City_Type">
+            <EntityTypeMapping TypeName="PostDBModel.City_Type">
+              <MappingFragment StoreEntitySet="City_Type">
+                <ScalarProperty Name="ID_City_Type" ColumnName="ID_City_Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="PostDBModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+                <ScalarProperty Name="House_Number" ColumnName="House_Number" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consignment">
+            <EntityTypeMapping TypeName="PostDBModel.Consignment">
+              <MappingFragment StoreEntitySet="Consignment">
+                <ScalarProperty Name="ID_Consignment" ColumnName="ID_Consignment" />
+                <ScalarProperty Name="ID_Consignment_Type" ColumnName="ID_Consignment_Type" />
+                <ScalarProperty Name="ID_Sender" ColumnName="ID_Sender" />
+                <ScalarProperty Name="ID_Reciever" ColumnName="ID_Reciever" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Worth" ColumnName="Worth" />
+                <ScalarProperty Name="ID_Transport_Company" ColumnName="ID_Transport_Company" />
+                <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
+                <ScalarProperty Name="ID_Office_Worker" ColumnName="ID_Office_Worker" />
+                <ScalarProperty Name="ID_Courier" ColumnName="ID_Courier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consignment_Type">
+            <EntityTypeMapping TypeName="PostDBModel.Consignment_Type">
+              <MappingFragment StoreEntitySet="Consignment_Type">
+                <ScalarProperty Name="ID_Consignment_Type" ColumnName="ID_Consignment_Type" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Full_Letter_Status">
+            <EntityTypeMapping TypeName="PostDBModel.Full_Letter_Status">
+              <MappingFragment StoreEntitySet="Full_Letter_Status">
+                <ScalarProperty Name="ID_Full_Letter_Status" ColumnName="ID_Full_Letter_Status" />
+                <ScalarProperty Name="Full_Status" ColumnName="Full_Status" />
+                <ScalarProperty Name="ID_Letter_Status" ColumnName="ID_Letter_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Letter_Status">
+            <EntityTypeMapping TypeName="PostDBModel.Letter_Status">
+              <MappingFragment StoreEntitySet="Letter_Status">
+                <ScalarProperty Name="ID_Letter_Status" ColumnName="ID_Letter_Status" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Office">
+            <EntityTypeMapping TypeName="PostDBModel.Office">
+              <MappingFragment StoreEntitySet="Office">
+                <ScalarProperty Name="ID_Office" ColumnName="ID_Office" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post_Office">
+            <EntityTypeMapping TypeName="PostDBModel.Post_Office">
+              <MappingFragment StoreEntitySet="Post_Office">
+                <ScalarProperty Name="Post_Index" ColumnName="Post_Index" />
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="PostDBModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="ID_Region" ColumnName="ID_Region" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="PostDBModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Street_Type" ColumnName="ID_Street_Type" />
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street_Type">
+            <EntityTypeMapping TypeName="PostDBModel.Street_Type">
+              <MappingFragment StoreEntitySet="Street_Type">
+                <ScalarProperty Name="ID_Street_Type" ColumnName="ID_Street_Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Track_List">
+            <EntityTypeMapping TypeName="PostDBModel.Track_List">
+              <MappingFragment StoreEntitySet="Track_List">
+                <ScalarProperty Name="ID_Consignment" ColumnName="ID_Consignment" />
+                <ScalarProperty Name="ID_Full_Letter_Status" ColumnName="ID_Full_Letter_Status" />
+                <ScalarProperty Name="Post_Index" ColumnName="Post_Index" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transport_Company">
+            <EntityTypeMapping TypeName="PostDBModel.Transport_Company">
+              <MappingFragment StoreEntitySet="Transport_Company">
+                <ScalarProperty Name="ID_Transport_Company" ColumnName="ID_Transport_Company" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transport_Cost">
+            <EntityTypeMapping TypeName="PostDBModel.Transport_Cost">
+              <MappingFragment StoreEntitySet="Transport_Cost">
+                <ScalarProperty Name="ID_Transport_Company" ColumnName="ID_Transport_Company" />
+                <ScalarProperty Name="ID_City_From" ColumnName="ID_City_From" />
+                <ScalarProperty Name="ID_City_To" ColumnName="ID_City_To" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="PostDBModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Passport_Serie" ColumnName="Passport_Serie" />
+                <ScalarProperty Name="Passport_Number" ColumnName="Passport_Number" />
+                <ScalarProperty Name="ID_Office" ColumnName="ID_Office" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="PostDataBaseModel">
+        <EntityTypeShape EntityType="PostDBModel.Area" Width="1.5" PointX="1.5" PointY="32.25" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.City" Width="1.5" PointX="1.5" PointY="22.375" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.City_Type" Width="1.5" PointX="1.5" PointY="26.75" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Client" Width="1.5" PointX="0.75" PointY="11.625" Height="2.9417936197916639" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Consignment" Width="1.5" PointX="3" PointY="3.875" Height="4.2879036458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Consignment_Type" Width="1.5" PointX="0.75" PointY="9.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Full_Letter_Status" Width="1.5" PointX="6" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Letter_Status" Width="1.5" PointX="3.75" PointY="1.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Office" Width="1.5" PointX="1.5" PointY="42.125" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Post_Office" Width="1.5" PointX="6" PointY="8.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Region" Width="1.5" PointX="1.5" PointY="29" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Street" Width="1.5" PointX="1.5" PointY="17.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Street_Type" Width="1.5" PointX="1.5" PointY="34.75" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Track_List" Width="1.5" PointX="8.25" PointY="4.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Transport_Company" Width="1.5" PointX="0.75" PointY="5.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Transport_Cost" Width="1.5" PointX="6" PointY="4.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Worker" Width="1.5" PointX="0.75" PointY="37.5" Height="2.9417936197916674" IsExpanded="true" />
+        <AssociationConnector Association="PostDBModel.FK_Region_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="32.25" />
+          <ConnectorPoint PointX="2.25" PointY="30.980286458333339" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_City_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5011528461538464" PointY="29" />
+          <ConnectorPoint PointX="1.3714255650988794" PointY="28.870272718945031" />
+          <ConnectorPoint PointX="1.2535744349011211" PointY="28.752421588747275" />
+          <ConnectorPoint PointX="1.125" PointY="28.623847153846153" />
+          <ConnectorPoint PointX="1.125" PointY="25.692946465945514" />
+          <ConnectorPoint PointX="1.2535744349011206" PointY="25.564372031044392" />
+          <ConnectorPoint PointX="1.3714255650988789" PointY="25.446520900846636" />
+          <ConnectorPoint PointX="1.5011528461538464" PointY="25.316793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_City_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.2818289230769233" PointY="26.75" />
+          <ConnectorPoint PointX="2.2818289230769233" PointY="25.316793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Post_Office_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="3" PointY="23.845896809895834" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="23.845896809895834" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="23.845896809895834" />
+          <ConnectorPoint PointX="3.8697929166666665" PointY="23.845896809895834" />
+          <ConnectorPoint PointX="4.0364595833333334" PointY="23.845896809895834" />
+          <ConnectorPoint PointX="6.75" PointY="23.845896809895834" />
+          <ConnectorPoint PointX="6.75" PointY="10.287985026041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Street_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="22.375" />
+          <ConnectorPoint PointX="2.25" PointY="20.239889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="3" PointY="22.40153746153846" />
+          <ConnectorPoint PointX="3.15153746153846" PointY="22.25" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="22.25" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="22.25" />
+          <ConnectorPoint PointX="3.8697929166666665" PointY="22.25" />
+          <ConnectorPoint PointX="4.0364595833333334" PointY="22.25" />
+          <ConnectorPoint PointX="5.75" PointY="22.25" />
+          <ConnectorPoint PointX="5.75" PointY="7.5152729383012833" />
+          <ConnectorPoint PointX="6.025383615384615" PointY="7.2398893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_2" ManuallyRouted="false">
+          <ConnectorPoint PointX="3" PointY="22.38307592307692" />
+          <ConnectorPoint PointX="3.3518259230769196" PointY="22.03125" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="22.03125" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="22.03125" />
+          <ConnectorPoint PointX="3.8697929166666665" PointY="22.03125" />
+          <ConnectorPoint PointX="4.0364595833333334" PointY="22.03125" />
+          <ConnectorPoint PointX="5.625" PointY="22.03125" />
+          <ConnectorPoint PointX="5.625" PointY="7.5906585536858984" />
+          <ConnectorPoint PointX="6" PointY="7.2156585536858984" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Client_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="17.875" />
+          <ConnectorPoint PointX="1.875" PointY="14.566793619791664" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Consignment_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.095896809895832" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="13.095896809895832" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="13.095896809895832" />
+          <ConnectorPoint PointX="3.75" PointY="13.095896809895832" />
+          <ConnectorPoint PointX="3.75" PointY="8.1629036458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Consignment_2" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.329195904947916" />
+          <ConnectorPoint PointX="3.3437475" PointY="12.329195904947916" />
+          <ConnectorPoint PointX="3.3437475" PointY="8.1629036458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Consignment_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.2604141666666666" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.4270808333333336" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="9.922841796875" />
+          <ConnectorPoint PointX="3.8697929166666665" PointY="9.922841796875" />
+          <ConnectorPoint PointX="4.0364595833333334" PointY="9.922841796875" />
+          <ConnectorPoint PointX="4.1562525" PointY="9.922841796875" />
+          <ConnectorPoint PointX="4.1562525" PointY="8.1629036458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Consignment_3" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.0189925130208337" />
+          <ConnectorPoint PointX="3" PointY="6.0189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Consignment_4" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="38.970896809895834" />
+          <ConnectorPoint PointX="3.54687375" PointY="38.970896809895834" />
+          <ConnectorPoint PointX="3.54687375" PointY="8.1629036458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Consignment_5" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="38.204195904947923" />
+          <ConnectorPoint PointX="3.4635404166666666" PointY="38.204195904947923" />
+          <ConnectorPoint PointX="3.6302070833333335" PointY="38.204195904947923" />
+          <ConnectorPoint PointX="3.95312625" PointY="38.204195904947923" />
+          <ConnectorPoint PointX="3.95312625" PointY="8.1629036458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Track_List_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.732648984375" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="7.7326489843749995" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="7.732648984375" />
+          <ConnectorPoint PointX="8.5104141666666653" PointY="7.7326489843749995" />
+          <ConnectorPoint PointX="8.6770808333333331" PointY="7.732648984375" />
+          <ConnectorPoint PointX="9" PointY="7.732648984375" />
+          <ConnectorPoint PointX="9" PointY="7.2398893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Full_Letter_Status_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="1.9228417968749998" />
+          <ConnectorPoint PointX="6" PointY="1.9228417968749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Track_List_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="1.7401432291666659" />
+          <ConnectorPoint PointX="9" PointY="1.7401432291666659" />
+          <ConnectorPoint PointX="9" PointY="4.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Worker_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="42.125" />
+          <ConnectorPoint PointX="1.875" PointY="40.441793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Track_List_2" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="9.3939925130208337" />
+          <ConnectorPoint PointX="8.5937475" PointY="9.3939925130208337" />
+          <ConnectorPoint PointX="8.5937475" PointY="7.2398893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Street_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5623066923076936" PointY="34.75" />
+          <ConnectorPoint PointX="1.3125" PointY="34.500193307692307" />
+          <ConnectorPoint PointX="1.3125" PointY="20.428542169070514" />
+          <ConnectorPoint PointX="1.5011528461538464" PointY="20.239889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_0" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.5407442565104166" />
+          <ConnectorPoint PointX="2.75" PointY="5.5407442565104166" />
+          <ConnectorPoint PointX="2.75" PointY="3.625" />
+          <ConnectorPoint PointX="6.75" PointY="3.625" />
+          <ConnectorPoint PointX="6.75" PointY="4.875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

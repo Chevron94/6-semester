@@ -1,0 +1,20 @@
+var x;
+procedure a(var c,d,e);
+var k;
+begin
+   c:=c-2;
+   if c>0
+   then call a(c,d,e);
+   k:=2;
+   c:=c+d*k*e;
+end;
+begin
+   x:=4;
+   call a(x,5,6);
+   x:=x*x;
+end.
+
+
+
+
+

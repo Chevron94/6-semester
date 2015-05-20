@@ -1,0 +1,82 @@
+var x;
+procedure a(var c,d,e);
+var k;
+begin
+   c:=c-2;
+   if c>0
+   then call a(c,d,e);
+   k:=2;
+   c:=c+d*k*e;
+end;
+begin
+   x:=4;
+   call a(x,5,6);
+   x:=x*x;
+end.
+
+
+
+
+
+
+All the PL/0 object code:
+  0 JMP   0   29
+  1 JMP   0    2
+  2 INT   0    7
+  3 LFA   0    3
+  4 LIT   0    2
+  5 OPR   0    3
+  6 SFA   0    3
+  7 LFA   0    3
+  8 LIT   0    0
+  9 OPR   0   12
+ 10 JPC   0   18
+ 11 LOD   0    3
+ 12 SFT   0    6
+ 13 LOD   0    4
+ 14 SFT   0    6
+ 15 LOD   0    5
+ 16 SFT   0    6
+ 17 CAL   1    2
+ 18 LIT   0    2
+ 19 STO   0    6
+ 20 LFA   0    3
+ 21 LOD   0    4
+ 22 LOD   0    6
+ 23 OPR   0    4
+ 24 LOD   0    5
+ 25 OPR   0    4
+ 26 OPR   0    2
+ 27 SFA   0    3
+ 28 OPR   0    0
+ 29 INT   0    4
+ 30 LIT   0    4
+ 31 STO   0    3
+ 32 WRA   0    3
+ 33 SFT   0    6
+ 34 LIT   0    5
+ 35 SFT   0    6
+ 36 LIT   0    6
+ 37 SFT   0    6
+ 38 CAL   0    2
+ 39 LOD   0    3
+ 40 LOD   0    3
+ 41 OPR   0    4
+ 42 STO   0    3
+ 43 OPR   0    0
+Start PL/0
+4
+4
+5
+6
+2
+4
+5
+6
+0
+2
+60
+2
+120
+14400
+End PL/0

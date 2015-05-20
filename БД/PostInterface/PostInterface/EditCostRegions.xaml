@@ -1,0 +1,67 @@
+﻿<Window x:Class="PostInterface.EditCostRegions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Правка ценового региона" Height="300" Width="629" Background="LightGray" KeyDown="Window_KeyDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+    <Grid Width="603" Height="265">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="55" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Откуда" Grid.Row="1" Grid.Column="1" Name="FromLabel" VerticalAlignment="Top" />
+        <Label Content="Область" Grid.Row="1" Grid.Column="2" Name="FromArea" VerticalAlignment="Top" />
+        <Label Content="Район" Grid.Row="3" Grid.Column="2" Name="FromRegion" VerticalAlignment="Top" />
+        <Label Content="Поселение" Grid.Row="5" Grid.Column="2" Name="FromCity" VerticalAlignment="Top" />
+        <ComboBox Grid.Column="3" Grid.Row="1" Name="FromAreaComboBox" IsEditable="True" TabIndex="0" Grid.ColumnSpan="2" SelectionChanged="FromAreaComboBox_SelectionChanged" />
+        <ComboBox Grid.Column="3" Grid.Row="3" Name="FromRegionComboBox" IsEditable="True" TabIndex="1" Grid.ColumnSpan="2" SelectionChanged="FromRegionComboBox_SelectionChanged" />
+        <ComboBox Grid.Column="3" Grid.Row="5" Name="FromCityComboBox" Grid.ColumnSpan="2"  TabIndex="2" IsEditable="True" SelectionChanged="CompanyComboBox_SelectionChanged" />
+
+        <Label Content="Куда" Grid.Row="1" Grid.Column="7" Name="ToLabel" VerticalAlignment="Top" />
+        <Label Content="Область" Grid.Row="1" Grid.Column="8" Name="ToArea" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <Label Content="Район" Grid.Row="3" Grid.Column="8" Name="ToRegion" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <Label Content="Поселение" Grid.Row="5" Grid.Column="8" Name="ToCity" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="10" Grid.Row="1" Name="ToAreaComboBox" IsEditable="True" TabIndex="3" Grid.ColumnSpan="3" SelectionChanged="ToAreaComboBox_SelectionChanged" />
+        <ComboBox Grid.Column="10" Grid.Row="3" Name="ToRegionComboBox" IsEditable="True" TabIndex="4" Grid.ColumnSpan="3" SelectionChanged="ToRegionComboBox_SelectionChanged" />
+        <ComboBox Grid.Column="10" Grid.Row="5" Name="ToCityComboBox" IsEditable="True"  TabIndex="5" Grid.ColumnSpan="3" SelectionChanged="CompanyComboBox_SelectionChanged" />
+        
+        <Label Content="Компания" Grid.Column="1" Grid.Row="8" Name="CompanyLabel" VerticalAlignment="Top" />
+        <Label Content="Стоимость" Grid.Column="1" Grid.Row="10" Name="Costlabel" VerticalAlignment="Top" />       
+        <ComboBox Grid.Column="2" Grid.Row="8" Name="CompanyComboBox" IsEditable="True" TabIndex="6"  Grid.ColumnSpan="2" SelectionChanged="CompanyComboBox_SelectionChanged" />
+        <TextBox Grid.Column="2"  Grid.Row="10" Name="CostTextBox" TabIndex="7" PreviewTextInput="CostTextBox_PreviewTextInput" PreviewKeyDown="CostTextBox_PreviewKeyDown" />
+        <Button Content="ОК" Grid.Column="9" Grid.ColumnSpan="2" Grid.Row="13" Name="OKButton" TabIndex="8" Click="OKButton_Click" />
+        <Button Content="Отмена" Grid.Column="12" Grid.Row="13" Name="CancelButton" TabIndex="9" Click="CancelButton_Click" />
+        <Border BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="6" Grid.RowSpan="7" Name="border1"/>
+        <Border BorderBrush="Black" Grid.Column="6" BorderThickness="2" Grid.ColumnSpan="8" Grid.RowSpan="7" Name="border2"/>
+        <Border BorderBrush="Black" Grid.Row="7" BorderThickness="2" Grid.ColumnSpan="14" Grid.RowSpan="5" Name="border3"/>
+        <Border BorderBrush="Black" BorderThickness="4" Grid.ColumnSpan="14" Grid.RowSpan="12" Name="border4"/>
+    </Grid>
+</Window>

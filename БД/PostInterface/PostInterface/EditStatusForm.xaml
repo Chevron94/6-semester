@@ -1,0 +1,41 @@
+﻿<Window x:Class="PostInterface.EditStatusForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Статус отправления" Height="192" Width="477" Background="LightGray" ShowInTaskbar="False" ResizeMode="NoResize">
+    <Grid Width="454">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="104*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="ID Отправления" Grid.Row="1" Name="IdLetterLabel" VerticalAlignment="Top" />
+        <TextBox Grid.Column="2" Grid.Row="1" Name="IdLetterTextBox" IsReadOnly="True"/>
+        <Label Content="Статус" Grid.Row="3" Name="StatusLabel" VerticalAlignment="Top" />
+        <ComboBox Grid.Column="2" Grid.Row="3"  Name="StatusComboBox" IsEditable="True" SelectionChanged="StatusComboBox_SelectionChanged" />
+        <Label Content="Комментарий" Grid.Column="4" Grid.Row="3"  Name="FułłStatus" VerticalAlignment="Top" />
+        <ComboBox Grid.Column="6" Grid.Row="3" Name="FullStatusComboBox" IsEditable="True"/>
+        <Label Content="Индекс" Grid.Row="5" Name="IndexLabel" VerticalAlignment="Top" />
+        <ComboBox Grid.Column="2" Grid.Row="5" Name="IndexComboBox" IsEditable="True" PreviewTextInput="IndexTextBox_PreviewTextInput" PreviewKeyDown="IndexTextBox_PreviewKeyDown" SelectionChanged="IndexComboBox_SelectionChanged" />
+        <Label Content="Город" Grid.Column="4" Grid.Row="5" Name="CityLabel" VerticalAlignment="Top" />
+        <TextBox Grid.Column="6" Grid.Row="5" Name="CityTextBox" IsReadOnly="True"/>
+        <Button Content="Отмена" Grid.Column="6" Grid.Row="7" Name="CancelButton" Click="CancelButton_Click" />
+        <Button Content="ОК" Grid.Column="4" Grid.Row="7" Name="OkButton" Click="OkButton_Click" />
+    </Grid>
+</Window>

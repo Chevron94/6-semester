@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PostDBModelStoreContainer" CdmEntityContainer="PostDataBaseContext">
+    <EntitySetMapping Name="Area">
+      <EntityTypeMapping TypeName="PostDBModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="PostDBModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID_Region" ColumnName="ID_Region" />
+          <ScalarProperty Name="ID_City_Type" ColumnName="ID_City_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City_Type">
+      <EntityTypeMapping TypeName="PostDBModel.City_Type">
+        <MappingFragment StoreEntitySet="City_Type">
+          <ScalarProperty Name="ID_City_Type" ColumnName="ID_City_Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="PostDBModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+          <ScalarProperty Name="House_Number" ColumnName="House_Number" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="Flat" ColumnName="Flat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consignment">
+      <EntityTypeMapping TypeName="PostDBModel.Consignment">
+        <MappingFragment StoreEntitySet="Consignment">
+          <ScalarProperty Name="ID_Consignment" ColumnName="ID_Consignment" />
+          <ScalarProperty Name="ID_Consignment_Type" ColumnName="ID_Consignment_Type" />
+          <ScalarProperty Name="ID_Sender" ColumnName="ID_Sender" />
+          <ScalarProperty Name="ID_Reciever" ColumnName="ID_Reciever" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Worth" ColumnName="Worth" />
+          <ScalarProperty Name="ID_Transport_Company" ColumnName="ID_Transport_Company" />
+          <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
+          <ScalarProperty Name="ID_Office_Worker" ColumnName="ID_Office_Worker" />
+          <ScalarProperty Name="ID_Courier" ColumnName="ID_Courier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consignment_Type">
+      <EntityTypeMapping TypeName="PostDBModel.Consignment_Type">
+        <MappingFragment StoreEntitySet="Consignment_Type">
+          <ScalarProperty Name="ID_Consignment_Type" ColumnName="ID_Consignment_Type" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Full_Letter_Status">
+      <EntityTypeMapping TypeName="PostDBModel.Full_Letter_Status">
+        <MappingFragment StoreEntitySet="Full_Letter_Status">
+          <ScalarProperty Name="ID_Full_Letter_Status" ColumnName="ID_Full_Letter_Status" />
+          <ScalarProperty Name="Full_Status" ColumnName="Full_Status" />
+          <ScalarProperty Name="ID_Letter_Status" ColumnName="ID_Letter_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Letter_Status">
+      <EntityTypeMapping TypeName="PostDBModel.Letter_Status">
+        <MappingFragment StoreEntitySet="Letter_Status">
+          <ScalarProperty Name="ID_Letter_Status" ColumnName="ID_Letter_Status" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Office">
+      <EntityTypeMapping TypeName="PostDBModel.Office">
+        <MappingFragment StoreEntitySet="Office">
+          <ScalarProperty Name="ID_Office" ColumnName="ID_Office" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post_Office">
+      <EntityTypeMapping TypeName="PostDBModel.Post_Office">
+        <MappingFragment StoreEntitySet="Post_Office">
+          <ScalarProperty Name="Post_Index" ColumnName="Post_Index" />
+          <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Region">
+      <EntityTypeMapping TypeName="PostDBModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="ID_Region" ColumnName="ID_Region" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID_Area" ColumnName="ID_Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Street">
+      <EntityTypeMapping TypeName="PostDBModel.Street">
+        <MappingFragment StoreEntitySet="Street">
+          <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID_Street_Type" ColumnName="ID_Street_Type" />
+          <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Street_Type">
+      <EntityTypeMapping TypeName="PostDBModel.Street_Type">
+        <MappingFragment StoreEntitySet="Street_Type">
+          <ScalarProperty Name="ID_Street_Type" ColumnName="ID_Street_Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transport_Company">
+      <EntityTypeMapping TypeName="PostDBModel.Transport_Company">
+        <MappingFragment StoreEntitySet="Transport_Company">
+          <ScalarProperty Name="ID_Transport_Company" ColumnName="ID_Transport_Company" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transport_Cost">
+      <EntityTypeMapping TypeName="PostDBModel.Transport_Cost">
+        <MappingFragment StoreEntitySet="Transport_Cost">
+          <ScalarProperty Name="ID_Transport_Company" ColumnName="ID_Transport_Company" />
+          <ScalarProperty Name="ID_City_From" ColumnName="ID_City_From" />
+          <ScalarProperty Name="ID_City_To" ColumnName="ID_City_To" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trek_List">
+      <EntityTypeMapping TypeName="PostDBModel.Trek_List">
+        <MappingFragment StoreEntitySet="Trek_List">
+          <ScalarProperty Name="ID_Consignment" ColumnName="ID_Consignment" />
+          <ScalarProperty Name="ID_Full_Letter_Status" ColumnName="ID_Full_Letter_Status" />
+          <ScalarProperty Name="Post_Index" ColumnName="Post_Index" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Worker">
+      <EntityTypeMapping TypeName="PostDBModel.Worker">
+        <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Passport_Serie" ColumnName="Passport_Serie" />
+          <ScalarProperty Name="Passport_Number" ColumnName="Passport_Number" />
+          <ScalarProperty Name="ID_Office" ColumnName="ID_Office" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

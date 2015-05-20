@@ -1,0 +1,207 @@
+﻿<Window x:Class="PostInterface.AddEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddEditWindow" Height="489" Width="985" KeyDown="Window_KeyDown" ResizeMode="CanMinimize" Background="LightGray" Loaded="Window_Loaded" ShowInTaskbar="False">
+    
+    <Window.Resources>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Height="435" Width="951">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        
+        <!--Отправитель-->
+        
+        <Label Content="Отправитель" Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Name="SenderLabel" />
+        <TextBox Grid.Column="2" Grid.Row="1" Name="SenderNameTextBox" Grid.ColumnSpan="10" TabIndex="0" />
+        <Label Content="Адрес" Grid.Column="1" Grid.Row="3" Name="SenderAddressLabel" />
+
+        <Label Content="Индекс" Grid.Column="2" Grid.Row="3" Name="IndexSenderLabel" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="4" Name="IndexSenderComboBox" IsEditable="True" PreviewTextInput="IndexSenderComboBox_PreviewTextInput" SelectionChanged="IndexSenderComboBox_SelectionChanged"  TabIndex="1"/>
+        
+        <Label Content="Область" Grid.Column="2" Grid.Row="5" Name="AreaSenderLabel" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="6" Grid.Row="5" Name="AreaSenderComboBox" IsEditable="True" SelectedIndex="0" IsReadOnly="False" TabIndex="2" SelectionChanged="AreaSenderComboBox_SelectionChanged" Grid.ColumnSpan="4">
+        </ComboBox>
+        
+        <Label Content="Район" Grid.Column="2" Grid.Row="7"  Name="RegionSenderLabel" FontStretch="Normal" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="6" Grid.Row="7" Name="RegionSenderComboBox" SelectedIndex="0" IsEnabled="True" IsReadOnly="False" IsEditable="True" Grid.ColumnSpan="4" TabIndex="3" SelectionChanged="RegionSenderComboBox_SelectionChanged">
+        </ComboBox>
+        
+        <Label Content="Населенный пункт" Grid.Column="2" Grid.Row="9" Name="CitySenderLabel" Grid.ColumnSpan="6"  />
+        <ComboBox Grid.Column="6" Grid.Row="9" Name="CitySenderComboBox" IsEditable="True" SelectedIndex="0" Grid.ColumnSpan="4" TabIndex="4" SelectionChanged="CitySenderComboBox_SelectionChanged">
+        </ComboBox>
+        
+        <Label Content="Улица" Grid.Column="2" Grid.Row="11" Name="StreetSenderLabel" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="6" Grid.Row="11" Name="StreetSenderComboBox" IsEditable="True" SelectedIndex="0" TabIndex="5" Grid.ColumnSpan="4">
+        </ComboBox>
+        
+        
+        <Label Content="Дом" Grid.Column="2" Grid.Row="13" TextBlock.TextAlignment="Center" Name="HouseSenderLabel" Grid.ColumnSpan="1" />
+        <TextBox Grid.Column="3" Grid.Row="13" Name="HouseSenderInput" MaxLines="1" PreviewTextInput="HouseSenderInput_PreviewTextInput" TabIndex="6" Grid.ColumnSpan="2" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown"></TextBox>
+        
+        <Label Content="Корпус" Grid.Column="6" Grid.Row="13" Name="BuildingSenderLabel" Grid.ColumnSpan="1" />
+        <TextBox Grid.Column="7" Grid.Row="13"  Name="BuildingSenderTextBox" PreviewTextInput="BuildingSenderTextBox_PreviewTextInput" TabIndex="7" Grid.ColumnSpan="2" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown" />
+        
+        <Label Content="Квартира" Grid.Column="10"  Grid.Row="13" Name="FlatSenderLabel" FontSize="11.5" />
+        <TextBox Grid.Column="11" Grid.Row="13" Name="FlatSenderTextBox" PreviewTextInput="HouseSenderInput_PreviewTextInput" TabIndex="8" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown" />
+        
+        
+        <!-- Получатель -->
+        <Label Content="Получатель" Grid.Row="1" Name="RecieverLabel" Grid.Column="14" />
+        <TextBox Grid.Column="15" Grid.Row="1" Name="RecieverNameTextBox" Grid.ColumnSpan="10" TabIndex="9" />
+
+        <Label Content="Адрес" Grid.Row="3" Name="RecieverAddressLabel" Grid.Column="14" />
+        
+        <Label Content="Индес" Name="IndexRecieverLabel" Grid.Column="15" Grid.Row="3" Grid.ColumnSpan="2" />
+        <ComboBox Name="IndexRecieverComboBox" Grid.Column="19" Grid.Row="3" TabIndex="10" Grid.ColumnSpan="4" IsEditable="True" PreviewTextInput="IndexSenderComboBox_PreviewTextInput" SelectionChanged="IndexRecieverComboBox_SelectionChanged" />
+        
+        <Label Content="Область" Grid.Column="15" Grid.Row="5" Name="AreaRecieverLabel" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="19" Grid.Row="5" Name="AreaRecieverComboBox" IsEditable="True" SelectedIndex="0" IsReadOnly="False" TabIndex="11" Grid.ColumnSpan="4" SelectionChanged="AreaRecieverComboBox_SelectionChanged"></ComboBox>
+        
+        <Label Content="Район" Grid.Column="15" Grid.Row="7"  Name="RegionRecieverLabel" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="19" Grid.Row="7" Name="RegionRecieverComboBox" SelectedIndex="0" IsEnabled="True" IsReadOnly="False" IsEditable="True" Grid.ColumnSpan="4" TabIndex="12" SelectionChanged="RegionRecieverComboBox_SelectionChanged">
+        </ComboBox>
+        
+        <Label Content="Населенный пункт" Grid.Column="15" Grid.Row="9" Name="CityRecieverLabel" Grid.ColumnSpan="6" FontSize="12" />
+        <ComboBox Grid.Column="19" Grid.Row="9" Name="CityRecieverComboBox" IsEditable="True" SelectedIndex="0" Grid.ColumnSpan="4" TabIndex="13" SelectionChanged="CityRecieverComboBox_SelectionChanged">
+        </ComboBox>
+        
+        <Label Content="Улица" Grid.Column="15" Grid.Row="11" Name="StreetRecieverLabel" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column="19" Grid.Row="11" Name="StreetRecieverComboBox" IsEditable="True" SelectedIndex="0" TabIndex="14" Grid.ColumnSpan="4" >
+        </ComboBox>
+        
+        <Label Content="Дом" Grid.Column="15" Grid.Row="13" Name="HouseRecieverLabel" Grid.ColumnSpan="1" />
+        <TextBox Grid.Column="16" Grid.Row="13" Name="HouseRecieverInput" MaxLines="1" PreviewTextInput="HouseSenderInput_PreviewTextInput" TabIndex="15" Grid.ColumnSpan="2" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown"></TextBox>
+        
+        <Label Content="Корпус" Grid.Column="19" Grid.Row="13" Name="BuildingRecieverLabel" Grid.ColumnSpan="1" />
+        <TextBox Grid.Column="20" Grid.Row="13"  Name="BuildingRecieverTextBox" PreviewTextInput="BuildingSenderTextBox_PreviewTextInput" TabIndex="16" Grid.ColumnSpan="2" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown" />
+        
+        <Label Content="Квартира" Grid.Column="23"  Grid.Row="13" Name="FlatRecieverLabel" FontSize="11.5" />
+        <TextBox Grid.Column="24" Grid.Row="13" Name="FlatRecieverTextBox" PreviewTextInput="HouseSenderInput_PreviewTextInput" TabIndex="17" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown" />
+        
+        <!-- Отправление -->
+        
+        
+
+        <Label Content="Итого" Grid.Column="23" Grid.Row="18" Name="CostLabel" />
+        <TextBox Grid.Column="24" Grid.Row="18" Name="CostTextBox" IsReadOnly="True" />
+        
+        
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="13" Grid.RowSpan="15" Name="border1"/>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="13" Grid.ColumnSpan="13" Grid.RowSpan="15" Name="border2" />
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="15" Grid.ColumnSpan="26" Grid.RowSpan="5" Name="borderdown" />
+        <Border BorderBrush="Black" BorderThickness="4" Grid.ColumnSpan="26" Grid.RowSpan="20" Name="borderfull" />
+        <Grid Grid.Row="15" Grid.RowSpan="8" Grid.ColumnSpan="26" Name="grid1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="85" />
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="115" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="27" />
+                <ColumnDefinition Width="33" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="15*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Отправление" Grid.Row="1" Grid.Column="1" Name="LetterLabel" />
+
+            <Label Content="Категория" Grid.Row="1" Grid.Column="2" Name="LetterTypeLabel" />
+            <ComboBox Grid.Column="3" Grid.Row="1" Name="LetterTypeComboBox" IsEditable="True" SelectedIndex="0" TabIndex="18">
+            </ComboBox>
+
+            <Label Content="Доставка" Grid.Column="4" Grid.Row="1"  Name="CompanyLabel"  />
+            <ComboBox Grid.Column="5" Grid.Row="1"  Name="CompanyComboBox" SelectedIndex="0" IsEditable="True" TabIndex="19">
+            </ComboBox>
+
+            <Label Content="Вес" Grid.Column="7" Grid.Row="1" Name="WeightLabel" VerticalAlignment="Top" Grid.ColumnSpan="1" />
+            <TextBox Grid.Column="8" Grid.Row="1" Name="WeightTextBox" MaxLines="1" PreviewTextInput="HouseSenderInput_PreviewTextInput" TabIndex="20" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown" />
+
+            <Label Content="Ценность" Grid.Column="9" Grid.Row="1"  Name="PriceLabel" FontSize="11.5" />
+            <TextBox Grid.Column="10" Grid.Row="1" Name="PriceTextBox" MaxLines="1" PreviewTextInput="HouseSenderInput_PreviewTextInput" TabIndex="21" PreviewKeyDown="IndexSenderTextBox_PreviewKeyDown" />
+
+            <Label Content="Принял" Grid.Row="3" Name="GetLabel" VerticalAlignment="Top" Visibility="Hidden" Grid.Column="2" />
+            <ComboBox Grid.Column="3" Grid.Row="3" Name="GetComboBox"  Visibility="Hidden" IsEditable="True"/>
+
+            <Label Content="Доставил" Grid.Column="4" Grid.Row="3" Name="GiveLabel" VerticalAlignment="Top"  Visibility="Hidden" FontSize="11.5" />
+            <ComboBox Grid.Column="5" Grid.Row="3" Name="GiveComboBox"  Visibility="Hidden" IsEditable="True" />
+
+            <Button Content="ОК" Grid.Column="12" Name="OKButton" Click="OKButton_Click" TabIndex="22" Grid.Row="6" />
+            <Button Content="Отмена" Grid.Column="14" Name="CancelButton" Click="CancelButton_Click" TabIndex="23" Grid.Row="6"/>
+        </Grid>
+    </Grid>
+</Window>

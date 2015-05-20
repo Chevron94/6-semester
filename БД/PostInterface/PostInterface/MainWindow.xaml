@@ -1,0 +1,80 @@
+﻿<Window x:Class="PostInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Почтовые отправления [Отключено]" Height="350" Width="649" WindowStartupLocation="CenterScreen" Background="LightGray" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22" />
+            <RowDefinition Height="289*" />
+        </Grid.RowDefinitions>
+        <Menu  Name="menu1" Grid.Row="0" Grid.Column="0">
+            <MenuItem Name="DB" Header="База данных">
+                <MenuItem Name="ConnectMenuItem" Header="Подключиться к базе данных" Click="ConnectMenuItem_Click"/>
+                <MenuItem Name="CloseMenuItem" Header="Закрыть подключение" Click="CloseMenuItem_Click" />
+                <Separator />
+                <MenuItem Name="ExitMenuItem" Header="Выход" Click="ExitMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Name="EditMenuItem" Header="Правка">
+                <MenuItem Name="AddMenuItem" Header="Добавить новое отправление" Click="AddMenuItem_Click" />
+                <MenuItem Name="EditInformationMenuItem" Header="Изменить информацию об отправлении" Click="EditInformationMenuItem_Click" />
+                <MenuItem Name="ServiseSearchMenuItem" Header="Изменить служебную информацию об отправлении" Click="ServiseSearchMenuItem_Click"/>
+                <MenuItem Name="EditStatusMenuItem" Header="Изменить статус отправления" Click="EditStatusMenuItem_Click"/>
+                <MenuItem Name="DeleteMenuItem" Header="Удалить отправление из базы" Click="DeleteMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Name="SearchMenuItem" Header="Поиск">
+                <MenuItem Name="SearchLetterMenuItem" Header="Отследить отправление" Click="SearchLetterMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Name="AdministrationMenuItem" Header="Администрирование">
+                <MenuItem Header="Адреса">
+                    <MenuItem Name="AreaMenuItem" Header="Область">
+                        <MenuItem Name="AddAreaMenuItem" Header="Добавить" Click="AddAreaMenuItem_Click"/>
+                        <MenuItem Name="EditAreaMenuItem" Header="Изменить" Click="EditAreaMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Name="RegionMenuItem" Header="Район">
+                        <MenuItem Name="AddRegionMenuItem" Header="Добавить" Click="AddRegionMenuItem_Click" />
+                        <MenuItem Name="EditRegionMenuItem" Header="Изменить" Click="EditRegionMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Name="CityMenuItem" Header="Населенный пункт">
+                        <MenuItem Name="AddCityMenuItem" Header="Добавить" Click="AddCityMenuItem_Click" />
+                        <MenuItem Name="EditCityMenuItem" Header="Изменить" Click="EditCityMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Name="StreetMenuItem" Header="Улица">
+                        <MenuItem Name="AddStreetMenuItem" Header="Добавить" Click="AddStreetMenuItem_Click" />
+                        <MenuItem Name="EditStreetMenuItem" Header="Изменить" Click="EditStreetMenuItem_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Почтовые отделения">
+                    <MenuItem Name="AddPostOfficeMenuItem" Header="Добавить" Click="AddPostOfficeMenuItem_Click"/>
+                    <MenuItem Name="EditPostOfficeMenuItem" Header="Изменить" Click="EditPostOfficeMenuItem_Click"/>
+                    <MenuItem Name="DeletePostOfficeMenuItem" Header="Удалить" Click="DeletePostOfficeMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Сотрудники">
+                    <MenuItem Name="AddWorkerMenuItem" Header="Добавить" Click="AddWorkerMenuItem_Click"/>
+                    <MenuItem Name="EditWorkerMenuItem" Header="Изменить" Click="EditWorkerMenuItem_Click"/>
+                    <MenuItem Name="DeleteWorkerMenuItem" Header="Удалить" Click="DeleteWorkerMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Компании">
+                    <MenuItem Name="AddCompanyMenuItem" Header="Добавить" Click="AddCompanyMenuItem_Click"/>
+                    <MenuItem Name="EditCompanyMenuItem" Header="Изменить" Click="EditCompanyMenuItem_Click"/>
+                    <!--MenuItem Name="DeleteCompany" Header="Удалить" Click="DeleteCompany_Click"/-->
+                </MenuItem>
+                <MenuItem Name="EditCostRegionMenuItem" Header="Изменить ценовой регион" Click="EditCostRegionMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Сервис">
+                <MenuItem Name="AboutMenuItem" Header="О программе" Click="AboutMenuItem_Click" />
+                <MenuItem Name="AuthMenuItem" Header="Авторизоваться" Click="AuthMenuItem_Click" />
+                <MenuItem Name="LogoutMenuItem" Header="Выйти" Click="LogoutMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+        <DataGrid AutoGenerateColumns="False" Grid.Row="1" Name="DataView" CanUserAddRows="False" CanUserDeleteRows="False" Background="LightGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Отправления" Width="105" Binding="{Binding ID_Letter}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Статус" Width="105" Binding="{Binding Status}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Расшифровка" Width="105" Binding="{Binding FullStatus}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Индекс" Width="100" Binding="{Binding PostIndex}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Местоположение" Width="110" Binding="{Binding Сity}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Дата" Width="100" Binding="{Binding DateTime}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
