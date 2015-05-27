@@ -1,7 +1,7 @@
 ﻿<Window x:Class="PostInterface.AddEditWorker"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AddEditWorker" Height="339" Width="390" Background="LightGray" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="AddEditWorker" Height="339" Width="390" Background="LightGray" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Grid Height="310">
         <Grid.RowDefinitions>
             <RowDefinition Height="15" />

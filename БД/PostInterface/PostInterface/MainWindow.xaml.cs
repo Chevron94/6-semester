@@ -69,7 +69,10 @@ namespace PostInterface
 
         private void EditInformationMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            InputId input = new InputId("Введите номер отправления");
+            InputId input;
+            if (LastSearchId == 0)
+                input = new InputId("Введите номер отправления");
+            else input = new InputId("Введите номер отправления",LastSearchId.ToString());
             Message message = new Message();
             if (input.ShowDialog() == false)
             {
@@ -95,7 +98,10 @@ namespace PostInterface
 
         private void DeleteMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            InputId input = new InputId("Введите номер отправления");
+            InputId input;
+            if (LastSearchId == 0)
+                input = new InputId("Введите номер отправления");
+            else input = new InputId("Введите номер отправления", LastSearchId.ToString());
             Message message = new Message();
             if (input.ShowDialog() == false)
             { } //message.Show("Не введен ID");//MessageBox.Show("Не введен ID");
@@ -146,6 +152,7 @@ namespace PostInterface
         {
             Worker = null;
             DataView.ItemsSource = null;
+            LastSearchId = 0;
            // AuthMenuItem.IsEnabled = true;
         }
 
@@ -157,7 +164,10 @@ namespace PostInterface
 
         private void EditStatusMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            InputId input = new InputId("Введите номер отправления");
+            InputId input;
+            if (LastSearchId == 0)
+                input = new InputId("Введите номер отправления");
+            else input = new InputId("Введите номер отправления", LastSearchId.ToString());
             Message message = new Message();
             if (input.ShowDialog() == true)
             {
@@ -188,6 +198,7 @@ namespace PostInterface
             DataView.Visibility = System.Windows.Visibility.Visible;
             Title = "Почтовые отправления [Подключено]";
             connected = true;
+            LastSearchId = 0;
         }
 
         private void CloseMenuItem_Click(object sender, RoutedEventArgs e)
@@ -197,15 +208,17 @@ namespace PostInterface
             DataView.Visibility = System.Windows.Visibility.Hidden;
             Worker = null;
             DataView.ItemsSource = null;
+            LastSearchId = 0;
         }
 
         private void ServiseSearchMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            InputId input = new InputId("Введите ID отправления");
+            InputId input;
+            if (LastSearchId == 0)
+                input = new InputId("Введите номер отправления");
+            else input = new InputId("Введите номер отправления", LastSearchId.ToString());
              Message message = new Message();
-             if (input.ShowDialog() == false)
-                 message.Show("Не введен ID");
-             else
+             if (input.ShowDialog() == true)
              {
                  Consignment LC = new Consignment();
                  LC = DataBase.GetConsigmentById(Int32.Parse(input.InputIDTextBox.Text));

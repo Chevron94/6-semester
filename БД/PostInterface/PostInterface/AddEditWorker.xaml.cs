@@ -50,6 +50,8 @@ namespace PostInterface
                         OfficeComboBox.SelectedItem = DataBase.GetOfficeByID(WC.ID_Office);
                         LoginTextBox.Text = WC.Login;
                         PasswordPasswordBox.Password = WC.Password;
+                        SerieTextBox.Text = WC.Passport_Serie.ToString();
+                        NumberTextBox.Text = WC.Passport_Number.ToString();
                         break;
                     }
             }

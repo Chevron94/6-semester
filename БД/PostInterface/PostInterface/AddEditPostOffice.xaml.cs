@@ -28,6 +28,7 @@ namespace PostInterface
             AreaComboBox.SelectedIndex = 0;
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
             AreaComboBox.Focus();
+            Title = "Добавление";
             if (po != null)
             {
                 IndexTextBox.Text = po.Post_Index.ToString();
@@ -36,6 +37,7 @@ namespace PostInterface
                 Area a = DataBase.GetAreaById(r.ID_Area);
                 AreaComboBox.SelectedItem = a;
                 RegionComboBox.SelectedItem = r;
+                Title = "Редактирование";
                 foreach (City ci in CityComboBox.ItemsSource)
                 {
                     if (ci.ID_City == c.ID_City)

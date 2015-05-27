@@ -18,11 +18,13 @@ namespace PostInterface
     /// </summary>
     public partial class InputId : Window
     {
-        public InputId(string text)
+        public InputId(string text, string value="")
         {
             InitializeComponent();
-            InputIDTextBox.Focus();
             InputIDLabel.Content = text;
+            InputIDTextBox.Text = value;
+            InputIDTextBox.Focus();
+            InputIDTextBox.SelectAll();
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
         }
 
