@@ -1254,161 +1254,116 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="PostDataBaseModel">
-        <EntityTypeShape EntityType="PostDBModel.Area" Width="1.5" PointX="1.5" PointY="32.25" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.City" Width="1.5" PointX="1.5" PointY="22.375" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.City_Type" Width="1.5" PointX="1.5" PointY="26.75" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Client" Width="1.5" PointX="0.75" PointY="11.625" Height="2.9417936197916639" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Consignment" Width="1.5" PointX="3" PointY="3.875" Height="4.2879036458333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Consignment_Type" Width="1.5" PointX="0.75" PointY="9.125" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Full_Letter_Status" Width="1.5" PointX="6" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Letter_Status" Width="1.5" PointX="3.75" PointY="1.125" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Office" Width="1.5" PointX="1.5" PointY="42.125" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Post_Office" Width="1.5" PointX="6" PointY="8.5" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Region" Width="1.5" PointX="1.5" PointY="29" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Street" Width="1.5" PointX="1.5" PointY="17.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Street_Type" Width="1.5" PointX="1.5" PointY="34.75" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Track_List" Width="1.5" PointX="8.25" PointY="4.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Transport_Company" Width="1.5" PointX="0.75" PointY="5.125" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Transport_Cost" Width="1.5" PointX="6" PointY="4.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PostDBModel.Worker" Width="1.5" PointX="0.75" PointY="37.5" Height="2.9417936197916674" IsExpanded="true" />
+      <Diagram Name="PostDataBaseModel" ZoomLevel="40">
+        <EntityTypeShape EntityType="PostDBModel.Area" Width="1.5" PointX="2.875" PointY="9.375" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.City" Width="1.5" PointX="8.375" PointY="9.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.City_Type" Width="1.5" PointX="8.375" PointY="12" Height="1.4033821614583353" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Client" Width="1.5" PointX="8.25" PointY="3" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Consignment" Width="1.5" PointX="5.75" PointY="3" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Consignment_Type" Width="1.75" PointX="2.75" PointY="3" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Full_Letter_Status" Width="1.5" PointX="2.875" PointY="0.5" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Letter_Status" Width="1.5" PointX="0.5" PointY="0.5" Height="1.4033821614583333" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Office" Width="1.5" PointX="0.5" PointY="7" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Post_Office" Width="1.5" PointX="8.25" PointY="0.5" Height="1.4033821614583333" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Region" Width="1.5" PointX="6" PointY="9.375" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Street" Width="1.5" PointX="8.375" PointY="7" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Street_Type" Width="1.5" PointX="10.5" PointY="7.125" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Track_List" Width="1.5" PointX="5.75" PointY="0.5" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Transport_Company" Width="1.75" PointX="2.875" PointY="7" Height="1.4033821614583326" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Transport_Cost" Width="1.5" PointX="5.875" PointY="7" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="PostDBModel.Worker" Width="1.5" PointX="0.5" PointY="3" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="PostDBModel.FK_Region_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="32.25" />
-          <ConnectorPoint PointX="2.25" PointY="30.980286458333339" />
+          <ConnectorPoint PointX="4.375" PointY="10.076691080729166" />
+          <ConnectorPoint PointX="6" PointY="10.076691080729166" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_City_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5011528461538464" PointY="29" />
-          <ConnectorPoint PointX="1.3714255650988794" PointY="28.870272718945031" />
-          <ConnectorPoint PointX="1.2535744349011211" PointY="28.752421588747275" />
-          <ConnectorPoint PointX="1.125" PointY="28.623847153846153" />
-          <ConnectorPoint PointX="1.125" PointY="25.692946465945514" />
-          <ConnectorPoint PointX="1.2535744349011206" PointY="25.564372031044392" />
-          <ConnectorPoint PointX="1.3714255650988789" PointY="25.446520900846636" />
-          <ConnectorPoint PointX="1.5011528461538464" PointY="25.316793619791667" />
+          <ConnectorPoint PointX="7.5" PointY="10.172841796875002" />
+          <ConnectorPoint PointX="8.375" PointY="10.172841796875002" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_City_1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.2818289230769233" PointY="26.75" />
-          <ConnectorPoint PointX="2.2818289230769233" PointY="25.316793619791667" />
+          <ConnectorPoint PointX="9.125" PointY="12" />
+          <ConnectorPoint PointX="9.125" PointY="11.162985026041667" />
         </AssociationConnector>
-        <AssociationConnector Association="PostDBModel.FK_Post_Office_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="23.845896809895834" />
-          <ConnectorPoint PointX="3.4635404166666666" PointY="23.845896809895834" />
-          <ConnectorPoint PointX="3.6302070833333335" PointY="23.845896809895834" />
-          <ConnectorPoint PointX="3.8697929166666665" PointY="23.845896809895834" />
-          <ConnectorPoint PointX="4.0364595833333334" PointY="23.845896809895834" />
-          <ConnectorPoint PointX="6.75" PointY="23.845896809895834" />
-          <ConnectorPoint PointX="6.75" PointY="10.287985026041667" />
+        <AssociationConnector Association="PostDBModel.FK_Post_Office_0" ManuallyRouted="true">
+          <ConnectorPoint PointX="9.875" PointY="10.450317903645832" />
+          <ConnectorPoint PointX="12.395833333333336" PointY="10.450317903645832" />
+          <ConnectorPoint PointX="12.395833333333336" PointY="1.0707923307291667" />
+          <ConnectorPoint PointX="9.75" PointY="1.0707923307291667" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Street_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="22.375" />
-          <ConnectorPoint PointX="2.25" PointY="20.239889322916667" />
+          <ConnectorPoint PointX="9.5625" PointY="9.375" />
+          <ConnectorPoint PointX="9.5625" PointY="8.7879850260416674" />
         </AssociationConnector>
-        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_1" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="22.40153746153846" />
-          <ConnectorPoint PointX="3.15153746153846" PointY="22.25" />
-          <ConnectorPoint PointX="3.4635404166666666" PointY="22.25" />
-          <ConnectorPoint PointX="3.6302070833333335" PointY="22.25" />
-          <ConnectorPoint PointX="3.8697929166666665" PointY="22.25" />
-          <ConnectorPoint PointX="4.0364595833333334" PointY="22.25" />
-          <ConnectorPoint PointX="5.75" PointY="22.25" />
-          <ConnectorPoint PointX="5.75" PointY="7.5152729383012833" />
-          <ConnectorPoint PointX="6.025383615384615" PointY="7.2398893229166674" />
+        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_1" ManuallyRouted="true">
+          <ConnectorPoint PointX="8.375" PointY="9.94005926393995" />
+          <ConnectorPoint PointX="7.75" PointY="9.94005926393995" />
+          <ConnectorPoint PointX="7.75" PointY="9.3020833333333339" />
+          <ConnectorPoint PointX="7.011637576650708" PointY="9.3020833333333339" />
+          <ConnectorPoint PointX="7.011637576650708" PointY="8.7879850260416674" />
         </AssociationConnector>
-        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_2" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="22.38307592307692" />
-          <ConnectorPoint PointX="3.3518259230769196" PointY="22.03125" />
-          <ConnectorPoint PointX="3.4635404166666666" PointY="22.03125" />
-          <ConnectorPoint PointX="3.6302070833333335" PointY="22.03125" />
-          <ConnectorPoint PointX="3.8697929166666665" PointY="22.03125" />
-          <ConnectorPoint PointX="4.0364595833333334" PointY="22.03125" />
-          <ConnectorPoint PointX="5.625" PointY="22.03125" />
-          <ConnectorPoint PointX="5.625" PointY="7.5906585536858984" />
-          <ConnectorPoint PointX="6" PointY="7.2156585536858984" />
+        <AssociationConnector Association="PostDBModel.FK_Transport_Cost_2" ManuallyRouted="true">
+          <ConnectorPoint PointX="8.375" PointY="9.7025818527385752" />
+          <ConnectorPoint PointX="8.0572916666666679" PointY="9.7025818527385752" />
+          <ConnectorPoint PointX="8.0572916666666679" PointY="9.10229778138021" />
+          <ConnectorPoint PointX="7.2231800980571093" PointY="9.10229778138021" />
+          <ConnectorPoint PointX="7.2231800980571093" PointY="8.7879850260416674" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Client_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.875" PointY="17.875" />
-          <ConnectorPoint PointX="1.875" PointY="14.566793619791664" />
+          <ConnectorPoint PointX="9.0625" PointY="7" />
+          <ConnectorPoint PointX="9.0625" PointY="5.3648893229166656" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Consignment_1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="13.095896809895832" />
-          <ConnectorPoint PointX="3.4635404166666666" PointY="13.095896809895832" />
-          <ConnectorPoint PointX="3.6302070833333335" PointY="13.095896809895832" />
-          <ConnectorPoint PointX="3.75" PointY="13.095896809895832" />
-          <ConnectorPoint PointX="3.75" PointY="8.1629036458333317" />
+          <ConnectorPoint PointX="8.25" PointY="4.1824446614583328" />
+          <ConnectorPoint PointX="7.25" PointY="4.1824446614583328" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Consignment_2" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="12.329195904947916" />
-          <ConnectorPoint PointX="3.3437475" PointY="12.329195904947916" />
-          <ConnectorPoint PointX="3.3437475" PointY="8.1629036458333317" />
+          <ConnectorPoint PointX="8.25" PointY="3.5287223307291664" />
+          <ConnectorPoint PointX="7.25" PointY="3.5287223307291664" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Consignment_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.2604141666666666" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.4270808333333336" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.4635404166666666" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.6302070833333335" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="9.922841796875" />
-          <ConnectorPoint PointX="3.8697929166666665" PointY="9.922841796875" />
-          <ConnectorPoint PointX="4.0364595833333334" PointY="9.922841796875" />
-          <ConnectorPoint PointX="4.1562525" PointY="9.922841796875" />
-          <ConnectorPoint PointX="4.1562525" PointY="8.1629036458333317" />
+          <ConnectorPoint PointX="4.5" PointY="3.7016910807291667" />
+          <ConnectorPoint PointX="5.75" PointY="3.7016910807291667" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Consignment_3" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.0189925130208337" />
-          <ConnectorPoint PointX="3" PointY="6.0189925130208337" />
+          <ConnectorPoint PointX="4.59375" PointY="7" />
+          <ConnectorPoint PointX="4.59375" PointY="5.3883293229166664" />
+          <ConnectorPoint PointX="5.75" PointY="5.3883293229166664" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Consignment_4" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="38.970896809895834" />
-          <ConnectorPoint PointX="3.54687375" PointY="38.970896809895834" />
-          <ConnectorPoint PointX="3.54687375" PointY="8.1629036458333317" />
+          <ConnectorPoint PointX="2" PointY="4.7723600260416665" />
+          <ConnectorPoint PointX="5.75" PointY="4.7723600260416665" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Consignment_5" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="38.204195904947923" />
-          <ConnectorPoint PointX="3.4635404166666666" PointY="38.204195904947923" />
-          <ConnectorPoint PointX="3.6302070833333335" PointY="38.204195904947923" />
-          <ConnectorPoint PointX="3.95312625" PointY="38.204195904947923" />
-          <ConnectorPoint PointX="3.95312625" PointY="8.1629036458333317" />
+          <ConnectorPoint PointX="2" PointY="4.55662109375" />
+          <ConnectorPoint PointX="5.75" PointY="4.55662109375" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Track_List_1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7.732648984375" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="7.7326489843749995" />
-          <ConnectorPoint PointX="5.833333333333333" PointY="7.732648984375" />
-          <ConnectorPoint PointX="8.5104141666666653" PointY="7.7326489843749995" />
-          <ConnectorPoint PointX="8.6770808333333331" PointY="7.732648984375" />
-          <ConnectorPoint PointX="9" PointY="7.732648984375" />
-          <ConnectorPoint PointX="9" PointY="7.2398893229166674" />
+          <ConnectorPoint PointX="6.5" PointY="3" />
+          <ConnectorPoint PointX="6.5" PointY="2.287985026041667" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Full_Letter_Status_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="1.9228417968749998" />
-          <ConnectorPoint PointX="6" PointY="1.9228417968749998" />
+          <ConnectorPoint PointX="2" PointY="1.2016910807291668" />
+          <ConnectorPoint PointX="2.875" PointY="1.2016910807291668" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Track_List_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="1.7401432291666659" />
-          <ConnectorPoint PointX="9" PointY="1.7401432291666659" />
-          <ConnectorPoint PointX="9" PointY="4.875" />
+          <ConnectorPoint PointX="4.375" PointY="1.2978417968750002" />
+          <ConnectorPoint PointX="5.75" PointY="1.2978417968750002" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Worker_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.875" PointY="42.125" />
-          <ConnectorPoint PointX="1.875" PointY="40.441793619791667" />
+          <ConnectorPoint PointX="1.25" PointY="7" />
+          <ConnectorPoint PointX="1.25" PointY="5.3648893229166674" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Track_List_2" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="9.3939925130208337" />
-          <ConnectorPoint PointX="8.5937475" PointY="9.3939925130208337" />
-          <ConnectorPoint PointX="8.5937475" PointY="7.2398893229166674" />
+          <ConnectorPoint PointX="8.25" PointY="1.2016910807291668" />
+          <ConnectorPoint PointX="7.25" PointY="1.2016910807291668" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Street_1" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5623066923076936" PointY="34.75" />
-          <ConnectorPoint PointX="1.3125" PointY="34.500193307692307" />
-          <ConnectorPoint PointX="1.3125" PointY="20.428542169070514" />
-          <ConnectorPoint PointX="1.5011528461538464" PointY="20.239889322916667" />
+          <ConnectorPoint PointX="10.5" PointY="7.8266910807291659" />
+          <ConnectorPoint PointX="9.875" PointY="7.8266910807291659" />
         </AssociationConnector>
         <AssociationConnector Association="PostDBModel.FK_Transport_Cost_0" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.5407442565104166" />
-          <ConnectorPoint PointX="2.75" PointY="5.5407442565104166" />
-          <ConnectorPoint PointX="2.75" PointY="3.625" />
-          <ConnectorPoint PointX="6.75" PointY="3.625" />
-          <ConnectorPoint PointX="6.75" PointY="4.875" />
+          <ConnectorPoint PointX="4.625" PointY="7.7016910807291659" />
+          <ConnectorPoint PointX="5.875" PointY="7.7016910807291659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

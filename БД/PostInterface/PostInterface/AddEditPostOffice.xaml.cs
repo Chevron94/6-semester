@@ -24,20 +24,21 @@ namespace PostInterface
         public AddEditPostOffice(Post_Office po=null)
         {
             InitializeComponent();
-            AreaComboBox.ItemsSource = DataBase.GetAllAreas();
+            AreaComboBox.ItemsSource = DataBase.Areas.GetAllAreas();
             AreaComboBox.SelectedIndex = 0;
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
             AreaComboBox.Focus();
-            Title = "Добавление";
+            Title = "Почтовое отделение";
             if (po != null)
             {
                 IndexTextBox.Text = po.Post_Index.ToString();
-                City c = DataBase.GetCityById(po.ID_City);
-                Region r = DataBase.GetRegionById(c.ID_Region);
-                Area a = DataBase.GetAreaById(r.ID_Area);
+                City c = DataBase.Cities.GetCityById(po.ID_City);
+                Region r = DataBase.Regions.GetRegionById(c.ID_Region);
+                Area a = DataBase.Areas.GetAreaById(r.ID_Area);
                 AreaComboBox.SelectedItem = a;
                 RegionComboBox.SelectedItem = r;
-                Title = "Редактирование";
+                PO = po;
+                Title = "Почтовое отделение";
                 foreach (City ci in CityComboBox.ItemsSource)
                 {
                     if (ci.ID_City == c.ID_City)
@@ -61,7 +62,7 @@ namespace PostInterface
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataBase.GetPostOfficeByPostIndex(Int32.Parse(IndexTextBox.Text.Trim())) != null)
+            if (DataBase.Post_Officies.GetPostOfficeByPostIndex(Int32.Parse(IndexTextBox.Text.Trim())) != null && PO == null)
             {
                 Message msg = new Message();
                 msg.Show("Данное почтовое отделение уже существет");
@@ -86,7 +87,7 @@ namespace PostInterface
             {
                 if (AreaComboBox.SelectedIndex != 0)
                 {
-                    RegionComboBox.ItemsSource = DataBase.GetAllRegionsByAreaId((int)((Area)AreaComboBox.SelectedItem).ID_Area);
+                    RegionComboBox.ItemsSource = DataBase.Regions.GetAllRegionsByAreaId((int)((Area)AreaComboBox.SelectedItem).ID_Area);
                 }
                 else RegionComboBox.ItemsSource = null;
                 RegionComboBox.SelectedIndex = 0;
@@ -99,7 +100,7 @@ namespace PostInterface
             {
                 if (RegionComboBox.SelectedIndex != 0)
                 {
-                    CityComboBox.ItemsSource = DataBase.GetAllCitiesByRegionId((int)((Region)RegionComboBox.SelectedItem).ID_Region);
+                    CityComboBox.ItemsSource = DataBase.Cities.GetAllCitiesByRegionId((int)((Region)RegionComboBox.SelectedItem).ID_Region);
                 }
                 else CityComboBox.ItemsSource = null;
                 CityComboBox.SelectedIndex = 0;

@@ -56,7 +56,6 @@
                 <MenuItem Header="Компании">
                     <MenuItem Name="AddCompanyMenuItem" Header="Добавить" Click="AddCompanyMenuItem_Click"/>
                     <MenuItem Name="EditCompanyMenuItem" Header="Изменить" Click="EditCompanyMenuItem_Click"/>
-                    <!--MenuItem Name="DeleteCompany" Header="Удалить" Click="DeleteCompany_Click"/-->
                 </MenuItem>
                 <MenuItem Name="EditCostRegionMenuItem" Header="Изменить ценовой регион" Click="EditCostRegionMenuItem_Click"/>
             </MenuItem>

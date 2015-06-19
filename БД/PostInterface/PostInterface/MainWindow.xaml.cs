@@ -60,10 +60,10 @@ namespace PostInterface
             if (AEF.ShowDialog() == true)
             {
                 AEF.Letter.ID_Office_Worker = Worker.ID_Worker;
-                DataBase.AddConsignment(AEF.Letter);
+                DataBase.Consigments.AddConsignment(AEF.Letter);
                 Message msg = new Message();
                 msg.Show("Отправление успешно добавлено.\nНомер отправления: " + AEF.Letter.ID_Consignment);
-                DataBase.AddTrackElem(new Track_List { Date = DateTime.Now, ID_Consignment = AEF.Letter.ID_Consignment, Post_Index = DataBase.GetClientById(AEF.Letter.ID_Sender).Index, ID_Full_Letter_Status = 1 });
+                DataBase.Track_Elems.AddTrackElem(new Track_List { Date = DateTime.Now, ID_Consignment = AEF.Letter.ID_Consignment, Post_Index = DataBase.Clients.GetClientById(AEF.Letter.ID_Sender).Index, ID_Full_Letter_Status = 1 });
             };
         }
 
@@ -81,7 +81,7 @@ namespace PostInterface
             else
             {
                 Consignment LC = new Consignment();
-                LC = DataBase.GetConsigmentById(Int32.Parse(input.InputIDTextBox.Text));
+                LC = DataBase.Consigments.GetConsigmentById(Int32.Parse(input.InputIDTextBox.Text));
                 if (LC != null)
                 {
                     AddEditWindow aef = new AddEditWindow(LC);
@@ -89,7 +89,7 @@ namespace PostInterface
                     {
                         LC = aef.Letter;
 
-                        DataBase.EditConsigment(LC);
+                        DataBase.Consigments.EditConsigment(LC);
                     }
                 }
                 else message.Show("Отправление не найдено!");
@@ -108,7 +108,7 @@ namespace PostInterface
             else
             {
                 int id = Int32.Parse(input.InputIDTextBox.Text);
-                if (DataBase.GetConsigmentById(id)==null)
+                if (DataBase.Consigments.GetConsigmentById(id) == null)
                 {
                     message.Show("Не наден ID");
                     //MessageBox.Show("Не наден ID");
@@ -118,8 +118,8 @@ namespace PostInterface
 
                     if ((new ConfirmWindow("Удалить выбранное отправление?")).ShowDialog() == true)
                     {
-                        DataBase.DeleteConsigment(id);
-                        DataBase.DeleteConsignmentFromTrackList(id);
+                        DataBase.Consigments.DeleteConsigment(id);
+                        DataBase.Track_Elems.DeleteConsignmentFromTrackList(id);
                         if (id == LastSearchId)
                         {
                             DataView.ItemsSource = null;
@@ -138,7 +138,7 @@ namespace PostInterface
             if (input.ShowDialog()==true)
             {
                 int id = Int32.Parse(input.InputIDTextBox.Text);
-                var res = DataBase.GetTrackListByConsigmentId(id);
+                var res = DataBase.Track_Elems.GetTrackListByConsigmentId(id);
                 LastSearchId = id;
                 if (res.Count == 0)
                 {
@@ -173,7 +173,7 @@ namespace PostInterface
             {
                 int id = Int32.Parse(input.InputIDTextBox.Text);
                 //LetterClass LC = new LetterClass();
-                if (DataBase.GetConsigmentById(id)==null)
+                if (DataBase.Consigments.GetConsigmentById(id) == null)
                 {
                     message.Show("Информация не найдена");
                 }
@@ -182,10 +182,10 @@ namespace PostInterface
                     EditStatusForm ESF = new EditStatusForm(id);
                     if (ESF.ShowDialog() == true)
                     {
-                        DataBase.AddTrackElem(ESF.TEC);
+                        DataBase.Track_Elems.AddTrackElem(ESF.TEC);
                         if (LastSearchId == id)
                         {
-                            DataView.ItemsSource = DataBase.GetTrackListByConsigmentId(LastSearchId);
+                            DataView.ItemsSource = DataBase.Track_Elems.GetTrackListByConsigmentId(LastSearchId);
                         }
                     }
                 }
@@ -221,14 +221,14 @@ namespace PostInterface
              if (input.ShowDialog() == true)
              {
                  Consignment LC = new Consignment();
-                 LC = DataBase.GetConsigmentById(Int32.Parse(input.InputIDTextBox.Text));
+                 LC = DataBase.Consigments.GetConsigmentById(Int32.Parse(input.InputIDTextBox.Text));
                  if (LC != null)
                  {
                      AddEditWindow aef = new AddEditWindow(LC,true);
                      if (aef.ShowDialog() == true)
                      {
                          LC = aef.Letter;
-                         DataBase.EditConsigment(LC);
+                         DataBase.Consigments.EditConsigment(LC);
                      }
                  }
              }
@@ -239,7 +239,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Add_Area);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.AddArea(AEA.A);
+                DataBase.Areas.AddArea(AEA.A);
             }
         }
 
@@ -248,7 +248,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Edit_Area);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.EditArea(AEA.A);
+                DataBase.Areas.EditArea(AEA.A);
             }
         }
 
@@ -257,7 +257,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Edit_Region);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.EditRegion(AEA.R);
+                DataBase.Regions.EditRegion(AEA.R);
             }
         }
 
@@ -266,7 +266,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Add_Region);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.AddRegion(AEA.R);
+                DataBase.Regions.AddRegion(AEA.R);
             }
         }
 
@@ -275,7 +275,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Add_City);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.AddCity(AEA.C);
+                DataBase.Cities.AddCity(AEA.C);
             }
         }
 
@@ -284,7 +284,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Edit_City);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.EditCity(AEA.C);
+                DataBase.Cities.EditCity(AEA.C);
             }
         }
 
@@ -293,7 +293,7 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Add_Street);
             if (AEA.ShowDialog() == true)
             {
-                DataBase.AddStreet(AEA.S);
+                DataBase.Streets.AddStreet(AEA.S);
             }
         }
 
@@ -302,8 +302,8 @@ namespace PostInterface
             AddEditAddress AEA = new AddEditAddress(Address_States.Edit_Street);
             if (AEA.ShowDialog() == true)
             {
-                
-                DataBase.EditStreet(AEA.S);
+
+                DataBase.Streets.EditStreet(AEA.S);
             }
         }
 
@@ -313,7 +313,7 @@ namespace PostInterface
             AddEditWorker AEW = new AddEditWorker(Worker_States.Add_Worker, ref WC);
             if (AEW.ShowDialog() == true)
             {
-                DataBase.AddWorker(WC);
+                DataBase.Workers.AddWorker(WC);
                 Message msg = new Message();
                 msg.Show("Сотрудник добавлен,\n ID="+WC.ID_Worker);
             }
@@ -326,13 +326,13 @@ namespace PostInterface
             Message msg = new Message();
             if (IID.ShowDialog() == true)
             {
-                WC = DataBase.GetWorkerByID(Int32.Parse(IID.InputIDTextBox.Text));
+                WC = DataBase.Workers.GetWorkerByID(Int32.Parse(IID.InputIDTextBox.Text));
                 if (WC != null)
                 {
                     AddEditWorker AEW = new AddEditWorker(Worker_States.Edit_Worker, ref WC);
                     if (AEW.ShowDialog() == true)
                     {
-                        DataBase.EditWorker(WC);
+                        DataBase.Workers.EditWorker(WC);
                     }
                 }
                 else msg.Show("Сотрудник не найден");
@@ -346,11 +346,11 @@ namespace PostInterface
             if (IID.ShowDialog() == true)
             {
                 int id = Int32.Parse(IID.InputIDTextBox.Text);
-                if (DataBase.GetWorkerByID(id)!=null)
+                if (DataBase.Workers.GetWorkerByID(id) != null)
                 {
                     if ((new ConfirmWindow("Удалить выбранного сотрудника?")).ShowDialog() == true)
                     {
-                        DataBase.DeleteWorker(id);
+                        DataBase.Workers.DeleteWorker(id);
                         msg.Show("Сотрудник удален");
                     }
                         
@@ -369,7 +369,7 @@ namespace PostInterface
             Transport_Company CC = new Transport_Company();
             AddEditCompanies AEC = new AddEditCompanies(false,ref CC);
             if (AEC.ShowDialog() == true)
-                DataBase.AddCompany(CC);
+                DataBase.Transport_Companies.AddCompany(CC);
         }
 
         private void EditCompanyMenuItem_Click(object sender, RoutedEventArgs e)
@@ -378,7 +378,7 @@ namespace PostInterface
             AddEditCompanies AEW = new AddEditCompanies(true, ref CC);
                     if (AEW.ShowDialog() == true)
                     {
-                        DataBase.EditCompany(CC);
+                        DataBase.Transport_Companies.EditCompany(CC);
                     }
             
         }
@@ -391,11 +391,11 @@ namespace PostInterface
             {
                 int id = Int32.Parse(IID.InputIDTextBox.Text);
 
-                if (DataBase.GetCompanyById(id) != null)
+                if (DataBase.Transport_Companies.GetCompanyById(id) != null)
                 {
                     if ((new ConfirmWindow("Удалить выбранную компанию?")).ShowDialog() == true)
                     {
-                            DataBase.DeleteCompany(id);
+                        DataBase.Transport_Companies.DeleteCompany(id);
                     }
 
                 }
@@ -408,7 +408,7 @@ namespace PostInterface
             EditCostRegions ECR = new EditCostRegions();
             if (ECR.ShowDialog()==true)
             {
-                DataBase.EditTransportCost(new Transport_Cost() { ID_City_From = ((City)ECR.FromCityComboBox.SelectedItem).ID_City, ID_City_To = ((City)ECR.ToCityComboBox.SelectedItem).ID_City, ID_Transport_Company = ((Transport_Company)ECR.CompanyComboBox.SelectedItem).ID_Transport_Company, Cost=Int32.Parse(ECR.CostTextBox.Text) });
+                DataBase.Transport_Costs.EditTransportCost(new Transport_Cost() { ID_City_From = ((City)ECR.FromCityComboBox.SelectedItem).ID_City, ID_City_To = ((City)ECR.ToCityComboBox.SelectedItem).ID_City, ID_Transport_Company = ((Transport_Company)ECR.CompanyComboBox.SelectedItem).ID_Transport_Company, Cost = Int32.Parse(ECR.CostTextBox.Text) });
             }
             
         }
@@ -418,7 +418,7 @@ namespace PostInterface
             AddEditPostOffice AEPO = new AddEditPostOffice(null);
             if (AEPO.ShowDialog() == true)
             {
-                DataBase.AddPostOffice(AEPO.PO);
+                DataBase.Post_Officies.AddPostOffice(AEPO.PO);
             }
         }
 
@@ -429,7 +429,7 @@ namespace PostInterface
             if (IID.ShowDialog() == true)
             {
                 long id = Int32.Parse(IID.InputIDTextBox.Text);
-                Post_Office po = DataBase.GetPostOfficeByPostIndex(id);
+                Post_Office po = DataBase.Post_Officies.GetPostOfficeByPostIndex(id);
                 if (po == null)
                     msg.Show("Не найдено");
                 else
@@ -437,8 +437,8 @@ namespace PostInterface
                     AddEditPostOffice AEPO = new AddEditPostOffice(po);
                     if (AEPO.ShowDialog() == true)
                     {
-                        DataBase.DeletePostOffice(id);
-                        DataBase.AddPostOffice(AEPO.PO);
+                        DataBase.Post_Officies.DeletePostOffice(id);
+                        DataBase.Post_Officies.AddPostOffice(AEPO.PO);
                     }
                 }
             }
@@ -450,7 +450,7 @@ namespace PostInterface
             Message msg = new Message();
             if (IID.ShowDialog() == true)
             {
-                DataBase.DeletePostOffice(Int32.Parse(IID.InputIDTextBox.Text));
+                DataBase.Post_Officies.DeletePostOffice(Int32.Parse(IID.InputIDTextBox.Text));
             }
         }
     }

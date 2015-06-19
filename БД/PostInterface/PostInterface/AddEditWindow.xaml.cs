@@ -34,17 +34,16 @@ namespace PostInterface
         public AddEditWindow(Consignment item, bool service = false)
         {
             InitializeComponent();
-            AreaSenderComboBox.ItemsSource = DataBase.GetAllAreas();
-            AreaRecieverComboBox.ItemsSource = DataBase.GetAllAreas();
-            CompanyComboBox.ItemsSource = DataBase.GetAllCompanies();
-            IndexSenderComboBox.ItemsSource = DataBase.GetAllPostOfficies();
-            IndexRecieverComboBox.ItemsSource = DataBase.GetAllPostOfficies();
-            IndexSenderComboBox.ItemsSource = DataBase.GetAllPostOfficies();
-            LetterTypeComboBox.ItemsSource = DataBase.GetAllConsigmentTypes();
+            AreaSenderComboBox.ItemsSource = DataBase.Areas.GetAllAreas();
+            AreaRecieverComboBox.ItemsSource = DataBase.Areas.GetAllAreas();
+            CompanyComboBox.ItemsSource = DataBase.Transport_Companies.GetAllCompanies();
+            IndexSenderComboBox.ItemsSource = DataBase.Post_Officies.GetAllPostOfficies();
+            IndexRecieverComboBox.ItemsSource = DataBase.Post_Officies.GetAllPostOfficies();
+            LetterTypeComboBox.ItemsSource = DataBase.Consigment_Types.GetAllConsigmentTypes();
             Servise = service;
-            GetComboBox.ItemsSource = DataBase.GetAllWorkers();
+            GetComboBox.ItemsSource = DataBase.Workers.GetAllWorkers();
             GetComboBox.IsEnabled = false;
-            GiveComboBox.ItemsSource = DataBase.GetAllWorkers();
+            GiveComboBox.ItemsSource = DataBase.Workers.GetAllWorkers();
             GiveComboBox.SelectedIndex = 0;
             GetComboBox.SelectedIndex = 0;
             IndexSenderComboBox.SelectedIndex = 0;
@@ -54,7 +53,7 @@ namespace PostInterface
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
             if (item == null)
             {
-                Title = "Добавление";
+                Title = "Почтовое отправление";
                 Letter = new Consignment();
                 Sender = new Client();
                 Reciever = new Client();
@@ -63,36 +62,36 @@ namespace PostInterface
             else
             {
                 IsAdd = false;
-                Title = "Редактирование";
+                Title = "Почтовое отправление";
                 Letter = item;
 
 
                 if (Letter.ID_Transport_Company == 0)
                 {
                     CompanyRemoved = true;
-                    CompanyComboBox.ItemsSource = DataBase.GetAllCompanies();
+                    CompanyComboBox.ItemsSource = DataBase.Transport_Companies.GetAllCompanies();
                 }
                 else
                 {
                     CompanyRemoved = false;
                     Transport_Company CC = new Transport_Company();
-                    CC = DataBase.GetCompanyById(Letter.ID_Transport_Company);
+                    CC = DataBase.Transport_Companies.GetCompanyById(Letter.ID_Transport_Company);
                     CompanyComboBox.SelectedItem = CC;
                 }
 
-                LetterTypeComboBox.SelectedItem = DataBase.GetConsigmentTypeById(Letter.ID_Consignment_Type);
+                LetterTypeComboBox.SelectedItem = DataBase.Consigment_Types.GetConsigmentTypeById(Letter.ID_Consignment_Type);
                 WeightTextBox.Text = Letter.Weight.ToString();
                 PriceTextBox.Text = Letter.Worth.ToString();
                 CostTextBox.Text = Letter.Total_Cost.ToString();
 
-                Sender = DataBase.GetClientById(Letter.ID_Sender);
-                Street = DataBase.GetStreetById(Sender.ID_Street);
-                City = DataBase.GetCityById(Street.ID_City);
-                Region = DataBase.GetRegionById(City.ID_Region);
-                Area = DataBase.GetAreaById(Region.ID_Area);
+                Sender = DataBase.Clients.GetClientById(Letter.ID_Sender);
+                Street = DataBase.Streets.GetStreetById(Sender.ID_Street);
+                City = DataBase.Cities.GetCityById(Street.ID_City);
+                Region = DataBase.Regions.GetRegionById(City.ID_Region);
+                Area = DataBase.Areas.GetAreaById(Region.ID_Area);
 
                 SenderNameTextBox.Text = Sender.Name;
-                IndexSenderComboBox.SelectedValue = DataBase.GetPostOfficeByPostIndex(Sender.Index);
+                IndexSenderComboBox.SelectedValue = DataBase.Post_Officies.GetPostOfficeByPostIndex(Sender.Index);
                 AreaSenderComboBox.SelectedItem = Area;
                 RegionSenderComboBox.SelectedItem = Region;
                 foreach (City c in CitySenderComboBox.ItemsSource)
@@ -118,14 +117,14 @@ namespace PostInterface
                 BuildingSenderTextBox.Text = Sender.Building == null ? "" : Sender.Building;
                 FlatSenderTextBox.Text = Sender.Flat == null ? "" : Sender.Flat.ToString();
 
-                Reciever = DataBase.GetClientById(Letter.ID_Reciever);
-                Street = DataBase.GetStreetById(Reciever.ID_Street);
-                City = DataBase.GetCityById(Street.ID_City);
-                Region = DataBase.GetRegionById(City.ID_Region);
-                Area = DataBase.GetAreaById(Region.ID_Area);
+                Reciever = DataBase.Clients.GetClientById(Letter.ID_Reciever);
+                Street = DataBase.Streets.GetStreetById(Reciever.ID_Street);
+                City = DataBase.Cities.GetCityById(Street.ID_City);
+                Region = DataBase.Regions.GetRegionById(City.ID_Region);
+                Area = DataBase.Areas.GetAreaById(Region.ID_Area);
 
                 RecieverNameTextBox.Text = Reciever.Name;
-                IndexRecieverComboBox.SelectedItem = DataBase.GetPostOfficeByPostIndex(Reciever.Index);
+                IndexRecieverComboBox.SelectedItem = DataBase.Post_Officies.GetPostOfficeByPostIndex(Reciever.Index);
                 AreaRecieverComboBox.SelectedItem = Area;
                 RegionRecieverComboBox.SelectedItem = Region;
 
@@ -158,12 +157,12 @@ namespace PostInterface
                     GiveComboBox.Visibility = System.Windows.Visibility.Visible;
                     GiveLabel.Visibility = System.Windows.Visibility.Visible;
 
-                    Worker WC = DataBase.GetWorkerByID(Letter.ID_Office_Worker);
+                    Worker WC = DataBase.Workers.GetWorkerByID(Letter.ID_Office_Worker);
                     GetComboBox.SelectedItem = WC;
-                    WC = DataBase.GetWorkerByID(Letter.ID_Courier);
+                    WC = DataBase.Workers.GetWorkerByID(Letter.ID_Courier);
                     if (WC==null)
                     {
-                        GiveComboBox.ItemsSource = DataBase.GetWorkersWithoutRemoved();
+                        GiveComboBox.ItemsSource = DataBase.Workers.GetWorkersWithoutRemoved();
                         GiveComboBox.SelectedIndex = 0;
                     }
                     else
@@ -259,7 +258,7 @@ namespace PostInterface
                 CitySenderComboBox.SelectedIndex != 0 && CitySenderComboBox.SelectedItem != null &&
                 CityRecieverComboBox.SelectedIndex != 0 && CityRecieverComboBox.SelectedItem != null)
             {
-                long tmp = DataBase.GetTransportCost(((Transport_Company)CompanyComboBox.SelectedItem).ID_Transport_Company,
+                long tmp = DataBase.Transport_Costs.GetTransportCost(((Transport_Company)CompanyComboBox.SelectedItem).ID_Transport_Company,
                                                     ((City)CitySenderComboBox.SelectedItem).ID_City,
                                                     ((City)CityRecieverComboBox.SelectedItem).ID_City);
                 if (WeightTextBox.Text.Length > 0)
@@ -328,8 +327,8 @@ namespace PostInterface
 
             if (IsAdd)
             {
-                DataBase.AddClient(Sender);
-                DataBase.AddClient(Reciever);
+                DataBase.Clients.AddClient(Sender);
+                DataBase.Clients.AddClient(Reciever);
                 Letter.ID_Sender = Sender.ID_Client;
                 Letter.ID_Reciever = Reciever.ID_Client;
             }
@@ -357,7 +356,7 @@ namespace PostInterface
             {
                 if (AreaSenderComboBox.SelectedIndex != 0)
                 {
-                    RegionSenderComboBox.ItemsSource = DataBase.GetAllRegionsByAreaId((int)((Area)AreaSenderComboBox.SelectedItem).ID_Area);
+                    RegionSenderComboBox.ItemsSource = DataBase.Regions.GetAllRegionsByAreaId((int)((Area)AreaSenderComboBox.SelectedItem).ID_Area);
                 }
                 else RegionSenderComboBox.ItemsSource = null;
                 RegionSenderComboBox.SelectedIndex = 0;
@@ -377,7 +376,7 @@ namespace PostInterface
             {
                 if (RegionSenderComboBox.SelectedIndex != 0)
                 {
-                    CitySenderComboBox.ItemsSource = DataBase.GetAllCitiesByRegionId((int)((Region)RegionSenderComboBox.SelectedItem).ID_Region);
+                    CitySenderComboBox.ItemsSource = DataBase.Cities.GetAllCitiesByRegionId((int)((Region)RegionSenderComboBox.SelectedItem).ID_Region);
                 }
                 else CitySenderComboBox.ItemsSource = null;
                 CitySenderComboBox.SelectedIndex = 0;
@@ -391,7 +390,7 @@ namespace PostInterface
             {
                 if (CitySenderComboBox.SelectedIndex != 0)
                 {
-                    StreetSenderComboBox.ItemsSource = DataBase.GetAllStreetsByCityId((int)((City)CitySenderComboBox.SelectedItem).ID_City);
+                    StreetSenderComboBox.ItemsSource = DataBase.Streets.GetAllStreetsByCityId((int)((City)CitySenderComboBox.SelectedItem).ID_City);
                 }
                 else StreetSenderComboBox.ItemsSource = null;
                 StreetSenderComboBox.SelectedIndex = 0;
@@ -405,7 +404,7 @@ namespace PostInterface
             {
                 if (AreaRecieverComboBox.SelectedIndex != 0)
                 {
-                    RegionRecieverComboBox.ItemsSource = DataBase.GetAllRegionsByAreaId((int)((Area)AreaRecieverComboBox.SelectedItem).ID_Area);
+                    RegionRecieverComboBox.ItemsSource = DataBase.Regions.GetAllRegionsByAreaId((int)((Area)AreaRecieverComboBox.SelectedItem).ID_Area);
                 }
                 else RegionRecieverComboBox.ItemsSource = null;
                 RegionRecieverComboBox.SelectedIndex = 0;
@@ -419,7 +418,7 @@ namespace PostInterface
             {
                 if (RegionRecieverComboBox.SelectedIndex != 0)
                 {
-                    CityRecieverComboBox.ItemsSource = DataBase.GetAllCitiesByRegionId((int)((Region)RegionRecieverComboBox.SelectedItem).ID_Region);
+                    CityRecieverComboBox.ItemsSource = DataBase.Cities.GetAllCitiesByRegionId((int)((Region)RegionRecieverComboBox.SelectedItem).ID_Region);
                 }
                 else CityRecieverComboBox.ItemsSource = null;
                 CityRecieverComboBox.SelectedIndex = 0;
@@ -433,7 +432,7 @@ namespace PostInterface
             {
                 if (CityRecieverComboBox.SelectedIndex != 0)
                 {
-                    StreetRecieverComboBox.ItemsSource = DataBase.GetAllStreetsByCityId((int)((City)CityRecieverComboBox.SelectedItem).ID_City);
+                    StreetRecieverComboBox.ItemsSource = DataBase.Streets.GetAllStreetsByCityId((int)((City)CityRecieverComboBox.SelectedItem).ID_City);
                 }
                 else StreetRecieverComboBox.ItemsSource = null;
                 StreetRecieverComboBox.SelectedIndex = 0;
@@ -458,9 +457,9 @@ namespace PostInterface
             {
                 if (IndexSenderComboBox.SelectedIndex != 0)
                 {
-                    City City = DataBase.GetCityById(((Post_Office)IndexSenderComboBox.SelectedItem).ID_City);
-                    Region Region = DataBase.GetRegionById(City.ID_Region);
-                    Area Area = DataBase.GetAreaById(Region.ID_Area);
+                    City City = DataBase.Cities.GetCityById(((Post_Office)IndexSenderComboBox.SelectedItem).ID_City);
+                    Region Region = DataBase.Regions.GetRegionById(City.ID_Region);
+                    Area Area = DataBase.Areas.GetAreaById(Region.ID_Area);
 
                     AreaSenderComboBox.SelectedItem = Area;
                     RegionSenderComboBox.SelectedItem = Region;
@@ -487,9 +486,9 @@ namespace PostInterface
             {
                 if (IndexRecieverComboBox.SelectedIndex != 0)
                 {
-                    City City = DataBase.GetCityById(((Post_Office)IndexRecieverComboBox.SelectedItem).ID_City);
-                    Region Region = DataBase.GetRegionById(City.ID_Region);
-                    Area Area = DataBase.GetAreaById(Region.ID_Area);
+                    City City = DataBase.Cities.GetCityById(((Post_Office)IndexRecieverComboBox.SelectedItem).ID_City);
+                    Region Region = DataBase.Regions.GetRegionById(City.ID_Region);
+                    Area Area = DataBase.Areas.GetAreaById(Region.ID_Area);
                     AreaRecieverComboBox.SelectedItem = Area;
                     RegionRecieverComboBox.SelectedItem = Region;
                     foreach (City c in CityRecieverComboBox.ItemsSource)

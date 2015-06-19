@@ -34,20 +34,20 @@ namespace PostInterface
             Worker = WC;
             NameTextBox.Focus();
             OfficeComboBox.SelectedIndex = 0;
-            OfficeComboBox.ItemsSource = DataBase.GetAllOfficies();
+            OfficeComboBox.ItemsSource = DataBase.Officies.GetAllOfficies();
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
             switch (state)
             {
                 case Worker_States.Add_Worker:
                     {
-                        Title = "Новый сотрудник";
+                        Title = "Сотрудник";
                         break;
                     }
                 case Worker_States.Edit_Worker:
                     {
-                        Title = "Правка";
+                        Title = "Сотрудник";
                         NameTextBox.Text = WC.FIO;
-                        OfficeComboBox.SelectedItem = DataBase.GetOfficeByID(WC.ID_Office);
+                        OfficeComboBox.SelectedItem = DataBase.Officies.GetOfficeByID(WC.ID_Office);
                         LoginTextBox.Text = WC.Login;
                         PasswordPasswordBox.Password = WC.Password;
                         SerieTextBox.Text = WC.Passport_Serie.ToString();
@@ -68,7 +68,7 @@ namespace PostInterface
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
             Message msg = new Message();
-            if (DataBase.IsFreeLogin(LoginTextBox.Text.Trim()))
+            if (DataBase.Workers.IsFreeLogin(LoginTextBox.Text.Trim()))
             {
                 msg.Show("Логин уже используется");
                 LoginTextBox.Focus();

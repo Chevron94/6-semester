@@ -25,15 +25,15 @@ namespace PostInterface
             
             InitializeComponent();
             CC = cc;
-            CompanyNameComboBox.ItemsSource = DataBase.GetAllCompanies();
+            CompanyNameComboBox.ItemsSource = DataBase.Transport_Companies.GetAllCompanies();
             if (Edit)
             {
                 IsEditł = true;
-                Title = "Редактирование";
+                Title = "Транспортная компания";
             }
             else
             {
-                Title = "Добавление";
+                Title = "Транспортная компания";
                 CompanyNameComboBox.IsEnabled = false;
             }
             Dispatcher.Hooks.DispatcherInactive += MyIdle;

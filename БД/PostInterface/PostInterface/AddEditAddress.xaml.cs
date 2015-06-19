@@ -40,10 +40,7 @@ namespace PostInterface
         {
             InitializeComponent();
             State = state;
-            AreaComboBox.ItemsSource = DataBase.GetAllAreas();
-            /*RegionComboBox.ItemsSource = DataBase.Regions;
-            CityComboBox.ItemsSource = DataBase.City;
-            StreetComboBox.ItemsSource = DataBase.Streets;*/
+            AreaComboBox.ItemsSource = DataBase.Areas.GetAllAreas();
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
             switch (state)
             {
@@ -102,7 +99,7 @@ namespace PostInterface
                         CityComboBox.IsEnabled = false;
                         StreetComboBox.IsEnabled = false;
                         TypeComboBox.IsEnabled = true;
-                        TypeComboBox.ItemsSource = DataBase.GetAllCityTypes();
+                        TypeComboBox.ItemsSource = DataBase.Cities.GetAllCityTypes();
                         TypeComboBox.SelectedIndex = 0;
                         C = new City();
                         break;
@@ -116,7 +113,7 @@ namespace PostInterface
                         CityComboBox.IsEnabled = true;
                         StreetComboBox.IsEnabled = false;
                         TypeComboBox.IsEnabled = true;
-                        TypeComboBox.ItemsSource = DataBase.GetAllCityTypes();
+                        TypeComboBox.ItemsSource = DataBase.Cities.GetAllCityTypes();
                         
                         break;
                     };
@@ -129,7 +126,7 @@ namespace PostInterface
                         CityComboBox.IsEnabled = true;
                         StreetComboBox.IsEnabled = false;
                         TypeComboBox.IsEnabled = true;
-                        TypeComboBox.ItemsSource = DataBase.GetAllStreetTypes();
+                        TypeComboBox.ItemsSource = DataBase.Streets.GetAllStreetTypes();
                         S = new Street();
                         break;
                     };
@@ -142,7 +139,7 @@ namespace PostInterface
                         CityComboBox.IsEnabled = true;
                         StreetComboBox.IsEnabled = true;
                         TypeComboBox.IsEnabled = true;
-                        TypeComboBox.ItemsSource = DataBase.GetAllStreetTypes();
+                        TypeComboBox.ItemsSource = DataBase.Streets.GetAllStreetTypes();
                         break;
                     };
                     
@@ -264,7 +261,7 @@ namespace PostInterface
                 if (AreaComboBox.SelectedIndex != 0)
                 {
                     A = (Area)AreaComboBox.SelectedItem;
-                    RegionComboBox.ItemsSource = DataBase.GetAllRegionsByAreaId((int)((Area)AreaComboBox.SelectedItem).ID_Area);
+                    RegionComboBox.ItemsSource = DataBase.Regions.GetAllRegionsByAreaId((int)((Area)AreaComboBox.SelectedItem).ID_Area);
                     if (State == Address_States.Edit_Area)
                         InputNewValue.Text = A.Name;
                 }
@@ -280,7 +277,7 @@ namespace PostInterface
                 if (RegionComboBox.SelectedIndex != 0)
                 {
                     R = (Region)RegionComboBox.SelectedItem;
-                    CityComboBox.ItemsSource = DataBase.GetAllCitiesByRegionId((int)((Region)RegionComboBox.SelectedItem).ID_Region);
+                    CityComboBox.ItemsSource = DataBase.Cities.GetAllCitiesByRegionId((int)((Region)RegionComboBox.SelectedItem).ID_Region);
                     if (State == Address_States.Edit_Region)
                         InputNewValue.Text = R.Name;
                 }
@@ -295,12 +292,12 @@ namespace PostInterface
             {
                 if (CityComboBox.SelectedIndex != 0)
                 {
-                    StreetComboBox.ItemsSource = DataBase.GetAllStreetsByCityId((int)((City)CityComboBox.SelectedItem).ID_City);
+                    StreetComboBox.ItemsSource = DataBase.Streets.GetAllStreetsByCityId((int)((City)CityComboBox.SelectedItem).ID_City);
                     C = (City)CityComboBox.SelectedItem;
                     if (State == Address_States.Edit_City)
                     {
                         InputNewValue.Text = C.Name;
-                        TypeComboBox.SelectedItem = DataBase.GetCityTypeById(((City)(CityComboBox.SelectedItem)).ID_City_Type);
+                        TypeComboBox.SelectedItem = DataBase.Cities.GetCityTypeById(((City)(CityComboBox.SelectedItem)).ID_City_Type);
                     }
                 }
                 else StreetComboBox.ItemsSource = null;
@@ -318,7 +315,7 @@ namespace PostInterface
                     if (State == Address_States.Edit_Street)
                     {
                         InputNewValue.Text = S.Name;
-                        TypeComboBox.SelectedItem = DataBase.GetStreetTypeById(((Street)(StreetComboBox.SelectedItem)).ID_Street_Type);
+                        TypeComboBox.SelectedItem = DataBase.Streets.GetStreetTypeById(((Street)(StreetComboBox.SelectedItem)).ID_Street_Type);
                     }
                     
                 }

@@ -621,6 +621,7 @@ namespace PostInterface
         {
             return Name;
         }
+
     }
     
     /// <summary>
@@ -1333,10 +1334,7 @@ namespace PostInterface
         }
 
         #endregion
-        public override string ToString()
-        {
-            return Name;
-        }
+
     }
     
     /// <summary>
@@ -1994,6 +1992,7 @@ namespace PostInterface
         {
             return Type;
         }
+
     }
     
     /// <summary>
@@ -2542,11 +2541,8 @@ namespace PostInterface
         #endregion
         public override string ToString()
         {
-            if (Post_Index != 0)
-                return Post_Index.ToString();
-            return "(не выбрано)";
+            return Post_Index.ToString();
         }
-
     }
     
     /// <summary>
@@ -3464,12 +3460,10 @@ namespace PostInterface
         }
 
         #endregion
-
         public override string ToString()
         {
             return Name;
         }
-
     }
     
     /// <summary>
@@ -4027,7 +4021,6 @@ namespace PostInterface
         }
 
         #endregion
-
         public override string ToString()
         {
             return FIO;

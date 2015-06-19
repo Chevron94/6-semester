@@ -23,11 +23,11 @@ namespace PostInterface
         public EditCostRegions()
         {
             InitializeComponent();
-            FromAreaComboBox.ItemsSource = DataBase.GetAllAreas();
+            FromAreaComboBox.ItemsSource = DataBase.Areas.GetAllAreas();
             FromAreaComboBox.SelectedIndex = 0;
-            ToAreaComboBox.ItemsSource = DataBase.GetAllAreas();
+            ToAreaComboBox.ItemsSource = DataBase.Areas.GetAllAreas();
             ToAreaComboBox.SelectedIndex = 0;
-            CompanyComboBox.ItemsSource = DataBase.GetAllCompanies();
+            CompanyComboBox.ItemsSource = DataBase.Transport_Companies.GetAllCompanies();
             CompanyComboBox.SelectedIndex = 0;
             FromAreaComboBox.Focus();
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
@@ -45,7 +45,7 @@ namespace PostInterface
                     ToCityComboBox.SelectedIndex != 0 &&
                     CompanyComboBox.SelectedIndex != 0)
                 {
-                    CostTextBox.Text = DataBase.GetTransportCost(((Transport_Company)CompanyComboBox.SelectedItem).ID_Transport_Company, ((City)ToCityComboBox.SelectedItem).ID_City, ((City)FromCityComboBox.SelectedItem).ID_City).ToString();
+                    CostTextBox.Text = DataBase.Transport_Costs.GetTransportCost(((Transport_Company)CompanyComboBox.SelectedItem).ID_Transport_Company, ((City)ToCityComboBox.SelectedItem).ID_City, ((City)FromCityComboBox.SelectedItem).ID_City).ToString();
                     first = false;
                 }
 
@@ -89,7 +89,7 @@ namespace PostInterface
                 first = true;
                 if (FromAreaComboBox.SelectedIndex != 0)
                 {
-                    FromRegionComboBox.ItemsSource = DataBase.GetAllRegionsByAreaId((int)((Area)FromAreaComboBox.SelectedItem).ID_Area);
+                    FromRegionComboBox.ItemsSource = DataBase.Regions.GetAllRegionsByAreaId((int)((Area)FromAreaComboBox.SelectedItem).ID_Area);
                 }
                 else FromRegionComboBox.ItemsSource = null;
                 FromRegionComboBox.SelectedIndex = 0;
@@ -103,7 +103,7 @@ namespace PostInterface
                 first = true;
                 if (FromRegionComboBox.SelectedIndex != 0)
                 {
-                    FromCityComboBox.ItemsSource = DataBase.GetAllCitiesByRegionId((int)((Region)FromRegionComboBox.SelectedItem).ID_Region);
+                    FromCityComboBox.ItemsSource = DataBase.Cities.GetAllCitiesByRegionId((int)((Region)FromRegionComboBox.SelectedItem).ID_Region);
                 }
                 else FromCityComboBox.ItemsSource = null;
                 FromCityComboBox.SelectedIndex = 0;
@@ -117,7 +117,7 @@ namespace PostInterface
                 first = true;
                 if (ToAreaComboBox.SelectedIndex != 0)
                 {
-                    ToRegionComboBox.ItemsSource = DataBase.GetAllRegionsByAreaId((int)((Area)ToAreaComboBox.SelectedItem).ID_Area);
+                    ToRegionComboBox.ItemsSource = DataBase.Regions.GetAllRegionsByAreaId((int)((Area)ToAreaComboBox.SelectedItem).ID_Area);
                 }
                 else ToRegionComboBox.ItemsSource = null;
                 ToRegionComboBox.SelectedIndex = 0;
@@ -131,7 +131,7 @@ namespace PostInterface
                 first = true;
                 if (ToRegionComboBox.SelectedIndex != 0)
                 {
-                    ToCityComboBox.ItemsSource = DataBase.GetAllCitiesByRegionId((int)((Region)ToRegionComboBox.SelectedItem).ID_Region);
+                    ToCityComboBox.ItemsSource = DataBase.Cities.GetAllCitiesByRegionId((int)((Region)ToRegionComboBox.SelectedItem).ID_Region);
                 }
                 else ToCityComboBox.ItemsSource = null;
                 ToCityComboBox.SelectedIndex = 0;

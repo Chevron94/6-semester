@@ -27,11 +27,11 @@ namespace PostInterface
             Dispatcher.Hooks.DispatcherInactive += MyIdle;
             IdLetterTextBox.Text = ID_Letter.ToString();
 
-            IndexComboBox.ItemsSource = DataBase.GetAllPostOfficies();
+            IndexComboBox.ItemsSource = DataBase.Post_Officies.GetAllPostOfficies();
             IndexComboBox.SelectedIndex = 0;
             StatusComboBox.SelectedIndex = 0;
             FullStatusComboBox.SelectedIndex = 0;
-            StatusComboBox.ItemsSource = DataBase.GetAllLetterStatuses();
+            StatusComboBox.ItemsSource = DataBase.Statuses.GetAllLetterStatuses();
         }
 
         public void MyIdle(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace PostInterface
             {
                 if (StatusComboBox.SelectedIndex != 0)
                 {
-                    FullStatusComboBox.ItemsSource = DataBase.GetAllFullLetterStatusesByLetterStatusId((int)((Letter_Status)StatusComboBox.SelectedItem).ID_Letter_Status);
+                    FullStatusComboBox.ItemsSource = DataBase.Statuses.GetAllFullLetterStatusesByLetterStatusId((int)((Letter_Status)StatusComboBox.SelectedItem).ID_Letter_Status);
                 }
                 else FullStatusComboBox.ItemsSource = null;
                 FullStatusComboBox.SelectedIndex = 0;
@@ -87,7 +87,7 @@ namespace PostInterface
             {
                 if (IndexComboBox.SelectedIndex != 0)
                 {
-                    CityTextBox.Text = DataBase.GetCityById(((Post_Office)IndexComboBox.SelectedItem).ID_City).ToString();
+                    CityTextBox.Text = DataBase.Cities.GetCityById(((Post_Office)IndexComboBox.SelectedItem).ID_City).ToString();
                 }
                 else CityTextBox.Text = "";
             }

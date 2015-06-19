@@ -29,7 +29,7 @@ namespace PostInterface
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            worker = DataBase.GetWorkerByLoginAndPassword(LoginTextBox.Text, PasswordPasswordBox.Password);
+            worker = DataBase.Workers.GetWorkerByLoginAndPassword(LoginTextBox.Text, PasswordPasswordBox.Password);
             if (worker == null)
                 (new Message()).Show("Неверный логин/пароль");
             else (new Message()).Show("Авторизация прошла успешно");
